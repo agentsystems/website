@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AgentSystems — Open-Source Platform for Self-Hosted AI Agents</title>
+  <meta name="description" content="Open-source control plane for AI agents. Deploy on your infrastructure with container isolation, audit trails, and egress controls." />
+  <meta property="og:title" content="AgentSystems — Open-Source Platform for Self-Hosted AI Agents" />
+  <meta property="og:description" content="Open-source control plane for AI agents. Deploy on your infrastructure with container isolation and audit trails." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://agentsystems.ai" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AgentSystems — Open-Source Platform for Self-Hosted AI Agents" />
+  <meta name="twitter:description" content="Open-source control plane for AI agents. Deploy on your infrastructure." />
+
+  <style>
+    :root{
+      --bg:#0b2331;           /* hero/nav background (dark blue-green) */
+      --card:#0f2e40;         /* subtle darker accent */
+      --ink:#0e1b22;          /* dark text */
+      --ink-2:#334a57;        /* secondary text */
+      --fg:#0f2e40;           /* headings on light */
+      --muted:#667d8a;        /* muted text */
+      --brand:#18b0a6;        /* teal brand accent */
+      --brand-2:#19c6ba;      /* lighter accent */
+      --brand-dark:#0e8078;   /* darker brand */
+      --warning:#ff9800;      /* warning color */
+      --line:#e9eef2;         /* light divider */
+      --surface:#ffffff;      /* page background */
+      --surface-2:#f6fafb;    /* alt section background */
+      --gradient: linear-gradient(135deg, #18b0a6 0%, #19c6ba 50%, #1dd4c8 100%);
+
+      --maxw:1100px;
+
+      /* Type scale (adjust in one spot) */
+      --h1: clamp(32px, 6vw, 56px);
+      --h2: clamp(28px, 4.5vw, 40px);
+      --h3: clamp(20px, 3vw, 24px);
+      --body: 18px;
+      --small: 14px;
+
+      --radius: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 8px 24px rgba(0,0,0,.08);
+      --shadow-soft: 0 4px 14px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background:var(--surface);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Header */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background:var(--bg);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      max-width:var(--maxw); margin:0 auto; padding:14px 20px;
+      display:flex; align-items:center; gap:18px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff;}
+    .brand .logo{
+      width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      display:inline-block;
+    }
+    .brand span{font-weight:700; letter-spacing:.2px;}
+    .nav-fill{flex:1}
+    .nav a.link{
+      color:#cfe8f1; text-decoration:none; font-weight:600; font-size:16px; padding:8px 10px; border-radius:8px;
+    }
+    .nav a.link:hover{color:#fff; background:rgba(255,255,255,.08)}
+    .btn{
+      appearance:none; border:0; border-radius:10px; padding:10px 14px; font-weight:700; cursor:pointer;
+      display:inline-flex; align-items:center; gap:8px; text-decoration:none; white-space:nowrap;
+    }
+    .btn-primary{background:var(--brand); color:#002a2f;}
+    .btn-primary:hover{background:var(--brand-2)}
+    .btn-ghost{background:transparent; color:#e9f7fa; border:1px solid rgba(255,255,255,.24)}
+    .btn-ghost:hover{background:rgba(255,255,255,.08)}
+
+    /* Hero */
+    .hero{
+      background:
+        radial-gradient(1000px 500px at 80% -20%, rgba(24,176,166,.25), transparent 60%),
+        var(--bg);
+      color:#eaffff;
+      padding:72px 20px 56px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .hero-inner{max-width:var(--maxw); margin:0 auto; display:grid; gap:26px}
+    .h1{font-size:var(--h1); line-height:1.15; margin:0; color:#e7fdff}
+    .sub{font-size:20px; color:#cfe8f1; max-width:920px}
+    .hero-cta{display:flex; flex-wrap:wrap; gap:12px}
+    .tiny{font-size:var(--small); color:#bfe0ea}
+
+    pre.code{
+      margin:10px 0 0; padding:16px 18px; background:#07202b; color:#eaffff;
+      border:1px solid rgba(255,255,255,.08); border-radius:12px; font-size:16px; line-height:1.5; overflow:auto;
+    }
+
+    /* Sections */
+    section{padding:72px 20px}
+    .wrap{max-width:var(--maxw); margin:0 auto}
+    h2{font-size:var(--h2); line-height:1.2; margin:0 0 10px; color:var(--fg)}
+    p.lead{font-size:var(--body); color:var(--ink-2); margin:0 0 24px}
+    .pill{display:inline-block; font-size:13px; font-weight:700; color:#0a3a38; background:#c8f3ee; border:1px solid #9fe7df; padding:6px 10px; border-radius:999px; margin-bottom:14px}
+
+    /* Grids */
+    .grid{display:grid; gap:16px}
+    .cards-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .cards-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:1000px){.cards-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:640px){.cards-4,.cards-2{grid-template-columns:1fr}}
+
+    .card{
+      background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow-soft);
+      padding:18px 18px 16px; min-height:120px; transition: all 0.2s ease;
+    }
+    .card:hover{box-shadow:var(--shadow); transform:translateY(-2px)}
+    .card h3{font-size:18px; margin:0 0 6px}
+    .card p{margin:0; color:var(--ink-2); font-size:16px}
+    .card-highlight{border:2px solid var(--brand); background:linear-gradient(135deg, rgba(24,176,166,.03) 0%, transparent 100%)}
+
+    .alt{background:var(--surface-2)}
+
+    /* Timeline */
+    .timeline{position:relative; margin-top:10px}
+    .step{display:grid; grid-template-columns:80px 1fr; gap:18px; padding:22px 0; border-top:1px dashed var(--line)}
+    .step:first-child{border-top:0}
+    .step .num{font-weight:800; color:var(--brand); font-size:22px}
+    .step h4{font-size:18px; margin:0 0 6px}
+    .muted{color:var(--muted)}
+
+    /* CTA row */
+    .row-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:12px}
+
+    /* Features */
+    .feature-grid{display:grid; gap:24px; margin:32px 0}
+    .feature{display:flex; gap:16px; align-items:start}
+    .feature-icon{width:48px; height:48px; background:var(--gradient); border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:24px; flex-shrink:0}
+    .feature h3{font-size:20px; margin:0 0 8px; color:var(--fg)}
+    .feature p{margin:0; color:var(--ink-2); line-height:1.6}
+
+    /* Badge */
+    .badge{display:inline-block; padding:4px 8px; background:var(--brand); color:#fff; border-radius:6px; font-size:12px; font-weight:700; margin-left:8px}
+
+    /* Code inline */
+    code{background:#f3f7f9; padding:2px 6px; border-radius:4px; font-family:monospace; font-size:14px}
+
+    /* Stats */
+    .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:32px 0; text-align:center}
+    .stat h3{font-size:36px; margin:0; color:var(--brand); font-weight:800}
+    .stat p{margin:4px 0 0; color:var(--muted); font-size:14px}
+    @media (max-width:640px){.stats{grid-template-columns:1fr}}
+
+    /* Footer */
+    footer{padding:28px 20px; color:#55737f; border-top:1px solid var(--line)}
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="AgentSystems Home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>AgentSystems</span>
+      </a>
+      <div class="nav-fill"></div>
+      <a class="link" href="#approach">Why</a>
+      <a class="link" href="#industries">Use Cases</a>
+      <a class="link" href="#quickstart">Get Started</a>
+      <a class="link" href="#implementation">Components</a>
+      <a class="btn btn-ghost" href="https://github.com/agentsystems/agentsystems" target="_blank" rel="noopener">⭐ Star on GitHub</a>
+      <a class="btn btn-primary" href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener">Join Discord</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <h1 id="hero-title" class="h1">Self-hosted AI agents on your infrastructure</h1>
+      <p class="sub">Open-source platform for running AI agents. Deploy on your own infrastructure with container isolation, multiple provider support, and audit trail capabilities. Explore an alternative to cloud-hosted solutions.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#quickstart">Get Started</a>
+        <a class="btn btn-ghost" href="https://github.com/agentsystems/agentsystems" target="_blank" rel="noopener">⭐ Star on GitHub</a>
+        <a class="btn btn-ghost" href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener">Join Discord</a>
+      </div>
+      <div>
+        <p class="tiny">Apache 2.0 Licensed • Self-hosted • <a href="https://docs.agentsystems.ai" style="color:#fff">Documentation</a></p>
+        <pre class="code"><span style="color:#9fe7df"># Install once</span>
+curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download/install.sh | sh
+
+<span style="color:#9fe7df"># Deploy anywhere</span>
+agentsystems init my-deployment && cd my-deployment
+agentsystems up
+
+<span style="color:#9fe7df"># Access UI at http://localhost:3001</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY AGENTSYSTEMS -->
+  <section id="approach" aria-labelledby="approach-title">
+    <div class="wrap">
+      <span class="pill">Platform Architecture</span>
+      <h2 id="approach-title">Why AgentSystems?</h2>
+      <p class="lead">
+        Many AI platforms operate as cloud services. AgentSystems is a self-hosted control plane designed to run on your infrastructure. Agents run in containers, API calls can be logged, and you maintain control over the deployment.
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon">🔒</div>
+          <div>
+            <h3>Data Location Control</h3>
+            <p>Process data within your own environment. Deploy on-premises, in your VPC, or in air-gapped networks with local model support. Designed for scenarios where data location matters.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔄</div>
+          <div>
+            <h3>Multiple Provider Support</h3>
+            <p>Compatible with OpenAI, Anthropic, AWS Bedrock, or local models. Configuration at the platform level allows provider switching. Direct API key usage supported.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🛡️</div>
+          <div>
+            <h3>Security Features</h3>
+            <p>Agents run in Docker containers. Outbound requests can be routed through an HTTP CONNECT proxy with URL allowlisting. Audit trail functionality uses SHA-256 hash chaining.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <h3>100%</h3>
+          <p>Open Source</p>
+        </div>
+        <div class="stat">
+          <h3>0</h3>
+          <p>External Dependencies</p>
+        </div>
+        <div class="stat">
+          <h3>∞</h3>
+          <p>Deployment Options</p>
+        </div>
+      </div>
+
+      <div class="grid cards-4">
+        <div class="card"><h3>🏠 Self-Hosted</h3><p>Deploy on laptops, servers, or Kubernetes according to your requirements.</p></div>
+        <div class="card"><h3>📦 Container-Native</h3><p>Agents run as Docker containers with resource isolation and health check support.</p></div>
+        <div class="card"><h3>🔍 Observable</h3><p>Tracing integration with Langfuse available for monitoring LLM calls and agent execution.</p></div>
+        <div class="card"><h3>📝 Audit Trail</h3><p>Hash-chained audit logs that may be useful for compliance workflows.</p></div>
+      </div>
+
+      <div class="row-cta">
+        <a class="btn btn-primary" href="#quickstart">Get Started</a>
+        <a class="btn btn-ghost" href="https://docs.agentsystems.ai" target="_blank" rel="noopener">Read Documentation</a>
+        <a class="btn btn-ghost" href="https://github.com/agentsystems/agentsystems" target="_blank" rel="noopener">View Source</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section class="alt" aria-labelledby="arch-title">
+    <div class="wrap">
+      <span class="pill">How It Works</span>
+      <h2 id="arch-title">Platform Architecture</h2>
+      <p class="lead">
+        AgentSystems uses a gateway architecture. The gateway routes requests to containerized agents, logs activity to an audit trail, and manages container lifecycle.
+      </p>
+
+      <div class="timeline">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h4>Request arrives at gateway</h4>
+            <p class="muted">HTTP request hits the control plane on port 18080, generates a unique thread ID for tracking</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h4>Gateway discovers agent</h4>
+            <p class="muted">Attempts to find target agent via Docker labels, starts container if needed, checks health status</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h4>Agent processes request</h4>
+            <p class="muted">Isolated container handles the request, saves artifacts to thread-specific directory</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <h4>Audit trail logging</h4>
+            <p class="muted">Request, response, and metadata logging available with cryptographic hash chaining</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid cards-4" style="margin-top:32px">
+        <div class="card"><h3>Thread Isolation</h3><p>Requests receive unique thread IDs with separate artifact storage</p></div>
+        <div class="card"><h3>Auto Lifecycle</h3><p>Containers can start on demand and stop when idle</p></div>
+        <div class="card"><h3>Progress Tracking</h3><p>Progress updates available for long-running operations</p></div>
+        <div class="card"><h3>Multi-Registry</h3><p>Support for pulling agents from Docker registries with authentication</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section id="industries" aria-labelledby="use-title">
+    <div class="wrap">
+      <span class="pill">Use Cases</span>
+      <h2 id="use-title">Potential Use Cases</h2>
+      <p class="lead">AgentSystems may be suitable for various scenarios where self-hosted infrastructure is preferred.</p>
+
+      <div class="grid cards-2">
+        <div class="card card-highlight">
+          <h3>🏥 Healthcare & Life Sciences</h3>
+          <p>Deploy within existing healthcare infrastructure. Process data in your environment while exploring AI capabilities. Consult your compliance team regarding specific requirements.</p>
+        </div>
+
+        <div class="card">
+          <h3>🏦 Financial Services</h3>
+          <p>Deploy within financial infrastructure. Audit trail functionality available. Consult your compliance team regarding specific regulatory requirements.</p>
+        </div>
+
+        <div class="card">
+          <h3>🏛️ Government & Defense</h3>
+          <p>Capable of deployment in air-gapped environments with local models. Internet connectivity not required for core operations when using local models.</p>
+        </div>
+
+        <div class="card">
+          <h3>⚖️ Legal & Professional Services</h3>
+          <p>Process documents within your infrastructure. Audit trail functionality with cryptographic hashing available for tracking operations.</p>
+        </div>
+
+        <div class="card">
+          <h3>🔬 Research & Development</h3>
+          <p>Keep research data within your infrastructure. Experiment with different model providers through configuration changes.</p>
+        </div>
+
+        <div class="card">
+          <h3>🚀 Startups & Innovation</h3>
+          <p>Begin with local deployment, expand as needed. Direct payment for compute and API usage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK START -->
+  <section id="quickstart" class="alt" aria-labelledby="quick-title">
+    <div class="wrap">
+      <span class="pill">Getting Started</span>
+      <h2 id="quick-title">Getting Started</h2>
+      <p class="lead">Deploy the platform with a few commands. Run your first agent shortly after.</p>
+
+      <div class="grid cards-2" style="margin-bottom:32px">
+        <div class="card">
+          <h3>📋 Prerequisites</h3>
+          <ul style="margin:8px 0; padding-left:20px">
+            <li>Python 3.11+</li>
+            <li>Docker Desktop (Mac) or Docker Engine (Linux)</li>
+            <li>4GB RAM available</li>
+            <li>10GB disk space</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>🖥️ What You Get</h3>
+          <ul style="margin:8px 0; padding-left:20px">
+            <li>Control plane gateway on port 18080</li>
+            <li>Web UI on port 3001</li>
+            <li>PostgreSQL for audit trails</li>
+            <li>HTTP proxy for egress control</li>
+          </ul>
+        </div>
+      </div>
+
+      <pre class="code"><span style="color:#9fe7df"># 1. Install the AgentSystems CLI</span>
+curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download/install.sh | sh
+
+<span style="color:#9fe7df"># 2. Initialize your deployment</span>
+agentsystems init my-deployment
+cd my-deployment
+
+<span style="color:#9fe7df"># 3. Start the platform</span>
+agentsystems up
+
+<span style="color:#9fe7df"># 4. Open the UI</span>
+open http://localhost:3001
+
+<span style="color:#9fe7df"># 5. (Optional) Download a local model for testing</span>
+docker exec ollama ollama pull llama3.2</pre>
+
+      <h3 style="font-size:var(--h3); margin-top:32px">Deploy Your First Agent</h3>
+
+      <pre class="code"><span style="color:#9fe7df"># Use the agent template</span>
+git clone https://github.com/agentsystems/agent-template my-agent
+cd my-agent
+
+<span style="color:#9fe7df"># Build your agent container</span>
+docker build -t my-agent:latest .
+
+<span style="color:#9fe7df"># Add to your deployment</span>
+cd ../my-deployment
+# Edit docker-compose.yml to include your agent
+
+<span style="color:#9fe7df"># Deploy and run</span>
+agentsystems up
+agentsystems run my-agent '{"prompt": "Hello, AgentSystems!"}'
+</pre>
+
+      <div class="row-cta">
+        <a class="btn btn-primary" href="https://docs.agentsystems.ai/getting-started/quickstart" target="_blank" rel="noopener">Full Documentation</a>
+        <a class="btn btn-ghost" href="https://github.com/agentsystems/agent-template" target="_blank" rel="noopener">Agent Template</a>
+        <a class="btn btn-ghost" href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener">Get Help on Discord</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section id="implementation" aria-labelledby="comp-title">
+    <div class="wrap">
+      <span class="pill">Platform Components</span>
+      <h2 id="comp-title">Platform Components</h2>
+      <p class="lead">Five components that form the AgentSystems platform.</p>
+
+      <div class="grid cards-2">
+        <div class="card">
+          <h3>🎛️ Agent Control Plane</h3>
+          <p>FastAPI-based gateway for agent lifecycle management, request routing, and audit trail functionality. Includes container discovery features.</p>
+          <a href="https://github.com/agentsystems/agent-control-plane" target="_blank" style="color:var(--brand); text-decoration:none; font-weight:600">View Repository →</a>
+        </div>
+
+        <div class="card">
+          <h3>🛠️ AgentSystems SDK</h3>
+          <p>Command-line tool for deployment and management. Designed for use on various platforms including laptops and CI/CD systems.</p>
+          <a href="https://github.com/agentsystems/agentsystems-sdk" target="_blank" style="color:var(--brand); text-decoration:none; font-weight:600">View Repository →</a>
+        </div>
+
+        <div class="card">
+          <h3>🎨 AgentSystems UI</h3>
+          <p>React-based dashboard for agent management and monitoring. Includes themes and audit trail viewer.</p>
+          <a href="https://github.com/agentsystems/agentsystems-ui" target="_blank" style="color:var(--brand); text-decoration:none; font-weight:600">View Repository →</a>
+        </div>
+
+        <div class="card">
+          <h3>🧰 AgentSystems Toolkit</h3>
+          <p>Python library for agent development. Includes model routing and progress tracking capabilities.</p>
+          <a href="https://github.com/agentsystems/agentsystems-toolkit" target="_blank" style="color:var(--brand); text-decoration:none; font-weight:600">View Repository →</a>
+        </div>
+
+        <div class="card">
+          <h3>📦 Agent Template</h3>
+          <p>FastAPI template with Langfuse tracing support, artifact handling, and license attribution features.</p>
+          <a href="https://github.com/agentsystems/agent-template" target="_blank" style="color:var(--brand); text-decoration:none; font-weight:600">View Repository →</a>
+        </div>
+
+        <div class="card">
+          <h3>📚 Documentation</h3>
+          <p>Guides for installation, configuration, and agent development. Built with Mintlify.</p>
+          <a href="https://docs.agentsystems.ai" target="_blank" style="color:var(--brand); text-decoration:none; font-weight:600">Read Docs →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="alt" aria-labelledby="comm-title">
+    <div class="wrap">
+      <span class="pill">Open Source Community</span>
+      <h2 id="comm-title">Join the Open Source Community</h2>
+      <p class="lead">AgentSystems is built in the open by a community of developers interested in self-hosted AI infrastructure.</p>
+
+      <div class="grid cards-4">
+        <div class="card">
+          <h3>🌟 Contributors</h3>
+          <p>Contribute to the development of self-hosted AI infrastructure.</p>
+          <a href="https://github.com/agentsystems/agentsystems/blob/main/CONTRIBUTING.md" target="_blank" style="color:var(--brand); text-decoration:none; font-weight:600">Contributing Guide →</a>
+        </div>
+
+        <div class="card">
+          <h3>💬 Discord Community</h3>
+          <p>Get help, share agents, and shape the roadmap with other users.</p>
+          <a href="https://discord.gg/bXgbDNpj" target="_blank" style="color:var(--brand); text-decoration:none; font-weight:600">Join Discord →</a>
+        </div>
+
+        <div class="card">
+          <h3>🐛 Report Issues</h3>
+          <p>Found a bug or have a feature request? Let us know on GitHub.</p>
+          <a href="https://github.com/agentsystems/agentsystems/issues" target="_blank" style="color:var(--brand); text-decoration:none; font-weight:600">Open Issue →</a>
+        </div>
+
+        <div class="card">
+          <h3>📧 Get Updates</h3>
+          <p>Stay informed about releases and major announcements.</p>
+          <a href="mailto:brandon@agentsystems.ai" style="color:var(--brand); text-decoration:none; font-weight:600">Contact →</a>
+        </div>
+      </div>
+
+      <div class="row-cta" style="margin-top:32px">
+        <a class="btn btn-primary" href="https://github.com/agentsystems/agentsystems" target="_blank" rel="noopener">⭐ Star on GitHub</a>
+        <a class="btn btn-ghost" href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener">Join Discord Community</a>
+        <a class="btn btn-ghost" href="https://docs.agentsystems.ai" target="_blank" rel="noopener">Read Documentation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="contact" aria-labelledby="roadmap-title">
+    <div class="wrap">
+      <span class="pill">What's Next</span>
+      <h2 id="roadmap-title">Roadmap</h2>
+      <p class="lead">AgentSystems is under active development with attention to security and developer experience.</p>
+
+      <div class="grid cards-2">
+        <div>
+          <h3 style="font-size:var(--h3); color:var(--brand)">✅ Currently Available</h3>
+          <ul style="line-height:1.8">
+            <li>Container-based agent isolation</li>
+            <li>Multi-provider model support (OpenAI, Anthropic, Bedrock, Ollama)</li>
+            <li>HTTP CONNECT proxy with URL allowlisting</li>
+            <li>Hash-chained audit trail functionality</li>
+            <li>Thread-based artifact management</li>
+            <li>Web UI with monitoring capabilities</li>
+            <li>CLI for deployment and management</li>
+            <li>Docker Compose deployments</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 style="font-size:var(--h3); color:var(--muted)">🚀 Planned Features</h3>
+          <ul style="line-height:1.8; color:var(--muted)">
+            <li>Authentication & RBAC</li>
+            <li>Kubernetes Helm charts</li>
+            <li>Agent Hub marketplace</li>
+            <li>Policy as code (OPA integration)</li>
+            <li>Signed container images</li>
+            <li>Advanced rate limiting</li>
+            <li>Distributed tracing</li>
+            <li>Additional support options</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:32px; text-align:center; padding:32px">
+        <h3 style="margin:0 0 12px">Questions? Ideas? Interested in contributing?</h3>
+        <p style="margin:0 0 16px">AgentSystems is being developed by <strong>Brandon Bennett</strong> and the open-source community.</p>
+        <div class="row-cta" style="justify-content:center">
+          <a class="btn btn-primary" href="mailto:brandon@agentsystems.ai">Contact Brandon</a>
+          <a class="btn btn-ghost" href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener">Join Discord</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="text-align:center">
+      <small>
+        <strong>AgentSystems</strong> is open-source software licensed under Apache 2.0<br>
+        Built by the community<br>
+        <a href="https://github.com/agentsystems" style="color:var(--muted)">GitHub</a> •
+        <a href="https://discord.gg/bXgbDNpj" style="color:var(--muted)">Discord</a> •
+        <a href="https://docs.agentsystems.ai" style="color:var(--muted)">Documentation</a> •
+        <a href="mailto:brandon@agentsystems.ai" style="color:var(--muted)">Contact</a>
+      </small>
+    </div>
+  </footer>
+</body>
+</html>
