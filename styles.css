@@ -406,6 +406,7 @@ footer{padding:28px 20px; color:#55737f; border-top:1px solid var(--line)}
 .mb-32{margin-bottom:32px}
 .p-32{padding:32px}
 .text-center{text-align:center}
+.text-center.card h3{display:block; text-align:center}
 .justify-center{justify-content:center}
 .text-brand{color:var(--brand)}
 .text-muted{color:var(--text-muted)}
