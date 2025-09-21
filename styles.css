@@ -142,9 +142,10 @@ body{
 }
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff;}
 .brand .logo{
-  width:32px; height:32px; border-radius:8px; background:var(--gradient);
+  height:28px;
+  width:auto;
   display:inline-block;
-  box-shadow: 0 0 20px rgba(0,182,160,0.3);
+  object-fit: contain;
 }
 .brand span{font-weight:700; letter-spacing:.2px;}
 .nav-fill{flex:1}
@@ -425,6 +426,13 @@ code{
 
 /* Footer */
 footer{padding:28px 20px; color:#55737f; border-top:1px solid var(--line)}
+.footer-icon{
+  width:80px;
+  height:80px;
+  display:block;
+  margin:0 auto 20px;
+  opacity:1;
+}
 
 /* Utility Classes */
 .link-white{color:#fff; text-decoration:none}
