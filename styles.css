@@ -65,6 +65,55 @@ html{
 * {
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
+
+/* Phosphor Icons */
+.ph {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+  font-size: 1.1em;
+}
+
+.btn .ph {
+  margin-right: 8px;
+}
+
+.link-brand .ph,
+.card a .ph {
+  margin-left: 4px;
+  margin-right: 0;
+  font-size: 0.9em;
+}
+
+.feature-icon .ph {
+  font-size: 2em;
+  margin: 0;
+  color: var(--brand);
+}
+
+.card h3 .ph,
+.feature h3 .ph {
+  color: var(--brand);
+  margin-right: 10px;
+  font-size: 1.1em;
+}
+
+.card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-highlight h3 .ph {
+  color: var(--brand-2);
+}
+
+.timeline h4 .ph,
+.step h4 .ph {
+  color: var(--brand);
+  margin-right: 8px;
+  font-size: 1em;
+}
 body{
   margin:0;
   font-family: var(--font-sans);
@@ -383,7 +432,7 @@ footer{padding:28px 20px; color:#55737f; border-top:1px solid var(--line)}
 /* Utility Classes */
 .link-white{color:#fff; text-decoration:none}
 .link-white:hover{text-decoration:underline}
-.link-brand{color:var(--brand); text-decoration:none; font-weight:600}
+.link-brand{color:var(--brand); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:4px}
 .link-brand:hover{text-decoration:underline}
 .link-muted{color:var(--text-muted); text-decoration:none}
 .link-muted:hover{color:var(--text-secondary)}
@@ -400,3 +449,10 @@ footer{padding:28px 20px; color:#55737f; border-top:1px solid var(--line)}
 .h3{font-size:var(--h3)}
 .feature-list{margin:8px 0; padding-left:20px}
 .spaced-list{line-height:1.8}
+
+/* Icon styling for Ionicons */
+ion-icon{font-size:16px; vertical-align:text-bottom; margin-right:6px}
+.btn ion-icon{font-size:18px; margin-right:8px}
+.link-brand ion-icon{margin-right:0; margin-left:6px; font-size:14px; vertical-align:middle}
+.card h3{display:flex; align-items:center}
+.card h3 ion-icon{margin-right:8px; flex-shrink:0; font-size:20px}
