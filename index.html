@@ -13,45 +13,76 @@
   <meta name="twitter:title" content="AgentSystems — Open-Source Platform for Self-Hosted AI Agents" />
   <meta name="twitter:description" content="Open-source control plane for AI agents. Deploy on your infrastructure." />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#0b2331;           /* hero/nav background (dark blue-green) */
-      --card:#0f2e40;         /* subtle darker accent */
-      --ink:#0e1b22;          /* dark text */
-      --ink-2:#334a57;        /* secondary text */
-      --fg:#0f2e40;           /* headings on light */
-      --muted:#667d8a;        /* muted text */
-      --brand:#18b0a6;        /* teal brand accent */
-      --brand-2:#19c6ba;      /* lighter accent */
-      --brand-dark:#0e8078;   /* darker brand */
-      --warning:#ff9800;      /* warning color */
-      --line:#e9eef2;         /* light divider */
+      /* Official AgentSystems Brand Colors */
+      --bg-dark:#0a0d11;      /* deep space black - hero/nav */
+      --surface-dark:#12161b; /* dark surface */
+      --surface-2-dark:#1a1f26; /* elevated surface */
+      --border-dark:#1e242b;  /* subtle border */
+
+      /* Brand Accents */
+      --brand:#00b6a0;        /* signature teal */
+      --brand-2:#47a1d9;      /* bright blue */
+      --gradient: linear-gradient(135deg, #00b6a0 0%, #47a1d9 100%);
+
+      /* Light theme surfaces */
       --surface:#ffffff;      /* page background */
-      --surface-2:#f6fafb;    /* alt section background */
-      --gradient: linear-gradient(135deg, #18b0a6 0%, #19c6ba 50%, #1dd4c8 100%);
+      --surface-2:#f8fafc;    /* alt section background */
+      --surface-3:#f1f5f9;    /* cards */
 
-      --maxw:1100px;
+      /* Text colors */
+      --text-dark:#e8ecf1;    /* light text on dark */
+      --text-light:#0f172a;   /* dark text on light */
+      --text-secondary:#475569; /* secondary text */
+      --text-muted:#64748b;   /* muted text */
 
-      /* Type scale (adjust in one spot) */
-      --h1: clamp(32px, 6vw, 56px);
-      --h2: clamp(28px, 4.5vw, 40px);
+      /* Borders and lines */
+      --line:#e2e8f0;         /* light divider */
+      --line-dark:#2a313a;    /* dark divider */
+
+      /* Status colors */
+      --success:#10b981;
+      --warning:#f59e0b;
+      --error:#ef4444;
+      --info:#06b6d4;
+
+      --maxw:1200px;
+
+      /* Typography - matching UI */
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, monospace;
+      --h1: clamp(36px, 5vw, 48px);
+      --h2: clamp(28px, 4vw, 36px);
       --h3: clamp(20px, 3vw, 24px);
-      --body: 18px;
+      --body: 16px;
       --small: 14px;
 
-      --radius: 14px;
-      --radius-sm: 10px;
-      --shadow: 0 8px 24px rgba(0,0,0,.08);
-      --shadow-soft: 0 4px 14px rgba(0,0,0,.06);
+      --radius: 10px;
+      --radius-lg: 14px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --shadow-soft: 0 4px 6px rgba(0,0,0,0.07);
+      --shadow-dark: 0 10px 30px rgba(0,0,0,0.4);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
+    /* Smooth transitions */
+    * {
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--ink);
+      font-family: var(--font-sans);
+      color:var(--text-light);
       background:var(--surface);
       line-height:1.6;
+      font-size:16px;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
@@ -59,9 +90,11 @@
     /* Header */
     .nav{
       position:sticky; top:0; z-index:50;
-      background:var(--bg);
-      color:#fff;
-      border-bottom:1px solid rgba(255,255,255,.08);
+      background:var(--bg-dark);
+      color:var(--text-dark);
+      border-bottom:1px solid var(--border-dark);
+      backdrop-filter: blur(10px);
+      background: rgba(10,13,17,0.95);
     }
     .nav-inner{
       max-width:var(--maxw); margin:0 auto; padding:14px 20px;
@@ -69,42 +102,66 @@
     }
     .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff;}
     .brand .logo{
-      width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      width:32px; height:32px; border-radius:8px; background:var(--gradient);
       display:inline-block;
+      box-shadow: 0 0 20px rgba(0,182,160,0.3);
     }
     .brand span{font-weight:700; letter-spacing:.2px;}
     .nav-fill{flex:1}
     .nav a.link{
-      color:#cfe8f1; text-decoration:none; font-weight:600; font-size:16px; padding:8px 10px; border-radius:8px;
+      color:rgba(232,236,241,0.8); text-decoration:none; font-weight:500; font-size:15px; padding:8px 12px; border-radius:8px;
+      transition: all 0.2s ease;
     }
-    .nav a.link:hover{color:#fff; background:rgba(255,255,255,.08)}
+    .nav a.link:hover{color:var(--text-dark); background:rgba(255,255,255,.08)}
     .btn{
       appearance:none; border:0; border-radius:10px; padding:10px 14px; font-weight:700; cursor:pointer;
       display:inline-flex; align-items:center; gap:8px; text-decoration:none; white-space:nowrap;
     }
-    .btn-primary{background:var(--brand); color:#002a2f;}
-    .btn-primary:hover{background:var(--brand-2)}
-    .btn-ghost{background:transparent; color:#e9f7fa; border:1px solid rgba(255,255,255,.24)}
-    .btn-ghost:hover{background:rgba(255,255,255,.08)}
+    .btn-primary{background:var(--gradient); color:var(--bg-dark); font-weight:600;}
+    .btn-primary:hover{opacity:0.9; transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,182,160,0.3)}
+    .btn-ghost{background:transparent; color:var(--text-dark); border:1px solid rgba(255,255,255,.15)}
+    .btn-ghost:hover{background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.25)}
 
     /* Hero */
     .hero{
       background:
-        radial-gradient(1000px 500px at 80% -20%, rgba(24,176,166,.25), transparent 60%),
-        var(--bg);
-      color:#eaffff;
-      padding:72px 20px 56px;
-      border-bottom:1px solid rgba(255,255,255,.06);
+        radial-gradient(circle at 20% 50%, rgba(0,182,160,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(71,161,217,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(59,130,246,0.05) 0%, transparent 50%),
+        var(--bg-dark);
+      color:var(--text-dark);
+      padding:80px 20px 64px;
+      border-bottom:1px solid var(--border-dark);
+      position:relative;
+      overflow:hidden;
     }
-    .hero-inner{max-width:var(--maxw); margin:0 auto; display:grid; gap:26px}
-    .h1{font-size:var(--h1); line-height:1.15; margin:0; color:#e7fdff}
-    .sub{font-size:20px; color:#cfe8f1; max-width:920px}
+
+    /* Add subtle animated gradient */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0,182,160,0.03), transparent);
+      animation: shimmer 8s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    .hero-inner{max-width:var(--maxw); margin:0 auto; display:grid; gap:26px; position:relative; z-index:1}
+    .h1{font-size:var(--h1); line-height:1.15; margin:0; color:var(--text-dark); font-weight:700; letter-spacing:-0.5px}
+    .sub{font-size:18px; color:rgba(232,236,241,0.8); max-width:920px; line-height:1.6}
     .hero-cta{display:flex; flex-wrap:wrap; gap:12px}
-    .tiny{font-size:var(--small); color:#bfe0ea}
+    .tiny{font-size:var(--small); color:rgba(148,163,184,0.8)}
 
     pre.code{
-      margin:10px 0 0; padding:16px 18px; background:#07202b; color:#eaffff;
-      border:1px solid rgba(255,255,255,.08); border-radius:12px; font-size:16px; line-height:1.5; overflow:auto;
+      margin:16px 0 0; padding:20px 24px; background:var(--surface-dark); color:var(--text-dark);
+      border:1px solid var(--border-dark); border-radius:var(--radius); font-size:14px; line-height:1.6; overflow:auto;
+      font-family:var(--font-mono); box-shadow:var(--shadow-dark);
     }
 
     /* Sections */
@@ -197,14 +254,14 @@
       </div>
       <div>
         <p class="tiny">Apache 2.0 Licensed • Self-hosted • <a href="https://docs.agentsystems.ai" style="color:#fff">Documentation</a></p>
-        <pre class="code"><span style="color:#9fe7df"># Install once</span>
+        <pre class="code"><span style="color:#00b6a0"># Install once</span>
 curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download/install.sh | sh
 
-<span style="color:#9fe7df"># Deploy anywhere</span>
+<span style="color:#00b6a0"># Deploy anywhere</span>
 agentsystems init my-deployment && cd my-deployment
 agentsystems up
 
-<span style="color:#9fe7df"># Access UI at http://localhost:3001</span></pre>
+<span style="color:#00b6a0"># Access UI at http://localhost:3001</span></pre>
       </div>
     </div>
   </section>
@@ -390,36 +447,36 @@ agentsystems up
         </div>
       </div>
 
-      <pre class="code"><span style="color:#9fe7df"># 1. Install the AgentSystems CLI</span>
+      <pre class="code"><span style="color:#00b6a0"># 1. Install the AgentSystems CLI</span>
 curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download/install.sh | sh
 
-<span style="color:#9fe7df"># 2. Initialize your deployment</span>
+<span style="color:#00b6a0"># 2. Initialize your deployment</span>
 agentsystems init my-deployment
 cd my-deployment
 
-<span style="color:#9fe7df"># 3. Start the platform</span>
+<span style="color:#00b6a0"># 3. Start the platform</span>
 agentsystems up
 
-<span style="color:#9fe7df"># 4. Open the UI</span>
+<span style="color:#00b6a0"># 4. Open the UI</span>
 open http://localhost:3001
 
-<span style="color:#9fe7df"># 5. (Optional) Download a local model for testing</span>
+<span style="color:#00b6a0"># 5. (Optional) Download a local model for testing</span>
 docker exec ollama ollama pull llama3.2</pre>
 
       <h3 style="font-size:var(--h3); margin-top:32px">Deploy Your First Agent</h3>
 
-      <pre class="code"><span style="color:#9fe7df"># Use the agent template</span>
+      <pre class="code"><span style="color:#00b6a0"># Use the agent template</span>
 git clone https://github.com/agentsystems/agent-template my-agent
 cd my-agent
 
-<span style="color:#9fe7df"># Build your agent container</span>
+<span style="color:#00b6a0"># Build your agent container</span>
 docker build -t my-agent:latest .
 
-<span style="color:#9fe7df"># Add to your deployment</span>
+<span style="color:#00b6a0"># Add to your deployment</span>
 cd ../my-deployment
 # Edit docker-compose.yml to include your agent
 
-<span style="color:#9fe7df"># Deploy and run</span>
+<span style="color:#00b6a0"># Deploy and run</span>
 agentsystems up
 agentsystems run my-agent '{"prompt": "Hello, AgentSystems!"}'
 </pre>
