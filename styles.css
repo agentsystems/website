@@ -59,6 +59,11 @@
 html{
   scroll-behavior:smooth;
   scroll-padding-top:20px; /* Small offset for better anchor positioning */
+  overflow-x:hidden;
+}
+
+body {
+  overflow-x:hidden;
 }
 
 /* Smooth transitions */
@@ -188,13 +193,14 @@ body{
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(0,182,160,0.03), transparent);
   animation: shimmer 8s infinite;
+  pointer-events: none;
 }
 
 @keyframes shimmer {
   0% { left: -100%; }
   100% { left: 100%; }
 }
-.hero-inner{max-width:var(--maxw); margin:0 auto; display:grid; gap:26px; position:relative; z-index:1}
+.hero-inner{max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; gap:26px; position:relative; z-index:1}
 .h1{font-size:var(--h1); line-height:1.15; margin:0; color:var(--text-dark); font-weight:700; letter-spacing:-0.5px}
 .sub{font-size:18px; color:rgba(232,236,241,0.8); max-width:920px; line-height:1.6}
 .hero-cta{display:flex; flex-wrap:wrap; gap:12px}
@@ -207,8 +213,8 @@ pre.code{
 }
 
 /* Sections */
-section{padding:72px 20px}
-.wrap{max-width:var(--maxw); margin:0 auto}
+section{padding:72px 20px; overflow-x:hidden;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
 
 /* Techie section headings */
 h2{
@@ -388,6 +394,37 @@ code{
   font-family:var(--font-mono);
 }
 @media (max-width:640px){.stats{grid-template-columns:1fr}}
+
+/* Responsive Navigation */
+@media (max-width:768px) {
+  .nav-inner{gap:12px; padding:12px 16px; justify-content:space-between;}
+  .nav a.link{display:none;}
+  .nav-fill{display:none;}
+  .nav .btn{font-size:13px; padding:8px 12px;}
+  .nav .btn-ghost{display:none;}
+  .brand span{font-size:16px;}
+}
+
+/* Responsive Hero */
+@media (max-width:768px) {
+  .hero{padding:60px 20px 48px;}
+  .hero-inner h1{font-size:32px; line-height:1.2;}
+  .hero-inner .sub{font-size:16px;}
+  .hero-cta{flex-direction:column; width:100%;}
+  .hero-cta .btn{width:100%; justify-content:center;}
+}
+
+/* Small mobile screens */
+@media (max-width:480px) {
+  .hero-inner h1{font-size:28px;}
+  .hero-inner .sub{font-size:15px;}
+  .wrap{padding:0 16px;}
+  h2{font-size:24px;}
+  .feature-grid{grid-template-columns:1fr;}
+  .row-cta{flex-direction:column; width:100%;}
+  .row-cta .btn{width:100%; justify-content:center;}
+  .pill{font-size:11px; padding:4px 10px;}
+}
 
 /* Footer */
 footer{padding:28px 20px; color:#55737f; border-top:1px solid var(--line)}
