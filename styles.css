@@ -61,6 +61,10 @@ html{
   scroll-padding-top:20px; /* Small offset for better anchor positioning */
   overflow-x:hidden;
 }
+/* No offset for #top anchor */
+body:target {
+  scroll-margin-top: 0;
+}
 
 
 /* Smooth transitions */
