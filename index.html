@@ -35,12 +35,12 @@
         <span>AgentSystems</span>
       </a>
       <div class="nav-fill"></div>
-      <a class="link" href="#approach">Why</a>
-      <a class="link" href="#industries">Use Cases</a>
+      <a class="link" href="#why">Why</a>
+      <a class="link" href="#use-cases">Use Cases</a>
       <a class="link" href="#quickstart">Get Started</a>
-      <a class="link" href="#implementation">Components</a>
+      <a class="link" href="#components">Components</a>
       <a class="btn btn-ghost" href="https://github.com/agentsystems/agentsystems" target="_blank" rel="noopener"><i class="ph ph-star"></i> Star on GitHub</a>
-      <a class="btn btn-primary" href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener"><i class="ph ph-discord-logo"></i> Join Discord</a>
+      <a class="btn btn-primary" href="#quickstart"><i class="ph ph-rocket-launch"></i> Quick Start</a>
     </div>
   </header>
 
@@ -52,10 +52,10 @@
       <div class="hero-cta">
         <a class="btn btn-primary" href="#quickstart"><i class="ph ph-rocket-launch"></i> Get Started</a>
         <a class="btn btn-ghost" href="https://github.com/agentsystems/agentsystems" target="_blank" rel="noopener"><i class="ph ph-star"></i> Star on GitHub</a>
-        <a class="btn btn-ghost" href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener"><i class="ph ph-discord-logo"></i> Join Discord</a>
+        <a class="btn btn-ghost" href="https://docs.agentsystems.ai" target="_blank" rel="noopener"><i class="ph ph-book-open"></i> View Docs</a>
       </div>
       <div>
-        <p class="tiny">Apache 2.0 Licensed • Self-hosted • <a href="https://docs.agentsystems.ai" class="link-white">Documentation</a></p>
+        <p class="tiny">Apache 2.0 Licensed • Self-hosted • <a href="https://docs.agentsystems.ai" target="_blank" rel="noopener" class="link-white">View Docs</a></p>
         <pre class="code"><span class="code-comment"># Install</span>
 curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download/install.sh | sh
 
@@ -71,7 +71,7 @@ open http://localhost:3001</pre>
   </section>
 
   <!-- WHY AGENTSYSTEMS -->
-  <section id="approach" aria-labelledby="approach-title">
+  <section id="why" aria-labelledby="approach-title">
     <div class="wrap">
       <span class="pill">Why AgentSystems</span>
       <h2 id="approach-title">Manage Your AI Infrastructure</h2>
@@ -127,8 +127,8 @@ open http://localhost:3001</pre>
 
       <div class="row-cta">
         <a class="btn btn-primary" href="#quickstart"><i class="ph ph-rocket-launch"></i> Get Started</a>
-        <a class="btn btn-ghost" href="https://docs.agentsystems.ai" target="_blank" rel="noopener"><i class="ph ph-book-open"></i> Read Documentation</a>
-        <a class="btn btn-ghost" href="https://github.com/agentsystems/agentsystems" target="_blank" rel="noopener"><i class="ph ph-code"></i> View Source</a>
+        <a class="btn btn-ghost" href="https://docs.agentsystems.ai" target="_blank" rel="noopener"><i class="ph ph-book-open"></i> View Docs</a>
+        <a class="btn btn-ghost" href="https://github.com/agentsystems/agentsystems" target="_blank" rel="noopener"><i class="ph ph-github-logo"></i> GitHub</a>
       </div>
     </div>
   </section>
@@ -179,7 +179,7 @@ open http://localhost:3001</pre>
   </section>
 
   <!-- USE CASES -->
-  <section id="industries" aria-labelledby="use-title">
+  <section id="use-cases" aria-labelledby="use-title">
     <div class="wrap">
       <span class="pill">Use Cases</span>
       <h2 id="use-title">Built for Privacy-First Organizations</h2>
@@ -262,15 +262,13 @@ docker exec agentsystems-ollama-1 ollama pull gemma3:1b
 open http://localhost:3001</pre>
 
       <div class="row-cta">
-        <a class="btn btn-primary" href="https://docs.agentsystems.ai/getting-started/quickstart" target="_blank" rel="noopener"><i class="ph ph-book-bookmark"></i> Full Documentation</a>
-        <a class="btn btn-ghost" href="https://github.com/agentsystems/agent-template" target="_blank" rel="noopener"><i class="ph ph-package"></i> Agent Template</a>
-        <a class="btn btn-ghost" href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener"><i class="ph ph-chat-circle"></i> Get Help on Discord</a>
+        <a class="btn btn-primary" href="https://docs.agentsystems.ai/getting-started/quickstart" target="_blank" rel="noopener"><i class="ph ph-book-bookmark"></i> View Docs</a>
       </div>
     </div>
   </section>
 
   <!-- COMPONENTS -->
-  <section id="implementation" aria-labelledby="comp-title">
+  <section id="components" aria-labelledby="comp-title">
     <div class="wrap">
       <span class="pill">Components</span>
       <h2 id="comp-title">Modular Architecture for AI Sovereignty</h2>
@@ -280,37 +278,37 @@ open http://localhost:3001</pre>
         <div class="card">
           <h3><i class="ph ph-cpu"></i> Agent Control Plane</h3>
           <p>FastAPI-based gateway for agent lifecycle management, request routing, and audit trail functionality. Includes container discovery features.</p>
-          <a href="https://github.com/agentsystems/agent-control-plane" target="_blank" class="link-brand">View Repository <i class="ph ph-arrow-right"></i></a>
+          <a href="https://github.com/agentsystems/agent-control-plane" target="_blank" rel="noopener" class="link-brand">View Repository <i class="ph ph-arrow-right"></i></a>
         </div>
 
         <div class="card">
           <h3><i class="ph ph-terminal"></i> AgentSystems SDK</h3>
           <p>Command-line tool for deployment and management. Designed for use on various platforms including laptops and CI/CD systems.</p>
-          <a href="https://github.com/agentsystems/agentsystems-sdk" target="_blank" class="link-brand">View Repository <i class="ph ph-arrow-right"></i></a>
+          <a href="https://github.com/agentsystems/agentsystems-sdk" target="_blank" rel="noopener" class="link-brand">View Repository <i class="ph ph-arrow-right"></i></a>
         </div>
 
         <div class="card">
           <h3><i class="ph ph-desktop"></i> AgentSystems UI</h3>
           <p>React-based dashboard for agent management and monitoring. Includes themes and audit trail viewer.</p>
-          <a href="https://github.com/agentsystems/agentsystems-ui" target="_blank" class="link-brand">View Repository <i class="ph ph-arrow-right"></i></a>
+          <a href="https://github.com/agentsystems/agentsystems-ui" target="_blank" rel="noopener" class="link-brand">View Repository <i class="ph ph-arrow-right"></i></a>
         </div>
 
         <div class="card">
           <h3><i class="ph ph-wrench"></i> AgentSystems Toolkit</h3>
           <p>Python library for agent development. Includes model routing and progress tracking capabilities.</p>
-          <a href="https://github.com/agentsystems/agentsystems-toolkit" target="_blank" class="link-brand">View Repository <i class="ph ph-arrow-right"></i></a>
+          <a href="https://github.com/agentsystems/agentsystems-toolkit" target="_blank" rel="noopener" class="link-brand">View Repository <i class="ph ph-arrow-right"></i></a>
         </div>
 
         <div class="card">
           <h3><i class="ph ph-file-code"></i> Agent Template</h3>
           <p>FastAPI template with Langfuse tracing support, artifact handling, and license attribution features.</p>
-          <a href="https://github.com/agentsystems/agent-template" target="_blank" class="link-brand">View Repository <i class="ph ph-arrow-right"></i></a>
+          <a href="https://github.com/agentsystems/agent-template" target="_blank" rel="noopener" class="link-brand">View Repository <i class="ph ph-arrow-right"></i></a>
         </div>
 
         <div class="card">
           <h3><i class="ph ph-book-open"></i> Documentation</h3>
           <p>Guides for installation, configuration, and agent development. Built with Mintlify.</p>
-          <a href="https://docs.agentsystems.ai" target="_blank" class="link-brand">Read Docs <i class="ph ph-arrow-right"></i></a>
+          <a href="https://docs.agentsystems.ai" target="_blank" rel="noopener" class="link-brand">View Docs <i class="ph ph-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -327,19 +325,19 @@ open http://localhost:3001</pre>
         <div class="card">
           <h3><i class="ph ph-users-three"></i> Contributors</h3>
           <p>Contribute to the development of self-hosted AI infrastructure.</p>
-          <a href="https://github.com/agentsystems/agentsystems/blob/main/CONTRIBUTING.md" target="_blank" class="link-brand">Contributing Guide <i class="ph ph-arrow-right"></i></a>
+          <a href="https://github.com/agentsystems/agentsystems/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="link-brand">Contributing Guide <i class="ph ph-arrow-right"></i></a>
         </div>
 
         <div class="card">
           <h3><i class="ph ph-discord-logo"></i> Discord Community</h3>
           <p>Get help, share agents, and shape the roadmap with other users.</p>
-          <a href="https://discord.gg/bXgbDNpj" target="_blank" class="link-brand"><i class="ph ph-discord-logo"></i> Join Discord <i class="ph ph-arrow-right"></i></a>
+          <a href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener" class="link-brand">Join Discord <i class="ph ph-arrow-right"></i></a>
         </div>
 
         <div class="card">
           <h3><i class="ph ph-bug"></i> Report Issues</h3>
           <p>Found a bug or have a feature request? Let us know on GitHub.</p>
-          <a href="https://github.com/agentsystems/agentsystems/issues" target="_blank" class="link-brand">Open Issue <i class="ph ph-arrow-right"></i></a>
+          <a href="https://github.com/agentsystems/agentsystems/issues" target="_blank" rel="noopener" class="link-brand">Open Issue <i class="ph ph-arrow-right"></i></a>
         </div>
 
         <div class="card">
@@ -351,8 +349,7 @@ open http://localhost:3001</pre>
 
       <div class="row-cta mt-32">
         <a class="btn btn-primary" href="https://github.com/agentsystems/agentsystems" target="_blank" rel="noopener"><i class="ph ph-star"></i> Star on GitHub</a>
-        <a class="btn btn-ghost" href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener"><i class="ph ph-discord-logo"></i> Join Discord Community</a>
-        <a class="btn btn-ghost" href="https://docs.agentsystems.ai" target="_blank" rel="noopener"><i class="ph ph-book-open"></i> Read Documentation</a>
+        <a class="btn btn-ghost" href="https://docs.agentsystems.ai" target="_blank" rel="noopener"><i class="ph ph-book-open"></i> View Docs</a>
       </div>
     </div>
   </section>
@@ -398,8 +395,7 @@ open http://localhost:3001</pre>
         <h3 class="mb-12">Questions? Ideas? Interested in contributing?</h3>
         <p class="mb-16">AgentSystems is being developed by the open-source community.</p>
         <div class="row-cta justify-center">
-          <a class="btn btn-primary" href="mailto:hello@agentsystems.ai"><i class="ph ph-envelope"></i> Contact Us</a>
-          <a class="btn btn-ghost" href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener"><i class="ph ph-discord-logo"></i> Join Discord</a>
+          <a class="btn btn-primary" href="mailto:hello@agentsystems.ai"><i class="ph ph-paper-plane-tilt"></i> Contact Us</a>
         </div>
       </div>
     </div>
@@ -411,9 +407,9 @@ open http://localhost:3001</pre>
         <strong>AgentSystems</strong> is open-source software licensed under Apache 2.0<br>
         Provided "AS IS" without warranties. Users are responsible for their own deployments.<br>
         Built by the community<br>
-        <a href="https://github.com/agentsystems" class="link-muted">GitHub</a> •
-        <a href="https://discord.gg/bXgbDNpj" class="link-muted">Discord</a> •
-        <a href="https://docs.agentsystems.ai" class="link-muted">Documentation</a> •
+        <a href="https://github.com/agentsystems" target="_blank" rel="noopener" class="link-muted">GitHub</a> •
+        <a href="https://discord.gg/bXgbDNpj" target="_blank" rel="noopener" class="link-muted">Discord</a> •
+        <a href="https://docs.agentsystems.ai" target="_blank" rel="noopener" class="link-muted">View Docs</a> •
         <a href="mailto:hello@agentsystems.ai" class="link-muted">Contact</a>
       </small>
     </div>

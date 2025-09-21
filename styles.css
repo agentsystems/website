@@ -80,7 +80,7 @@ body {
 }
 
 .btn .ph {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 .link-brand .ph,
@@ -158,10 +158,10 @@ body{
 .nav a.link:hover{color:var(--text-dark); background:rgba(255,255,255,.08)}
 .btn{
   appearance:none; border:0; border-radius:10px; padding:10px 14px; font-weight:700; cursor:pointer;
-  display:inline-flex; align-items:center; gap:8px; text-decoration:none; white-space:nowrap;
+  display:inline-flex; align-items:center; gap:4px; text-decoration:none; white-space:nowrap;
 }
 .btn-primary{background:var(--gradient); color:var(--bg-dark); font-weight:600;}
-.btn-primary:hover{opacity:0.9; transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,182,160,0.3)}
+.btn-primary:hover{opacity:0.9; box-shadow:0 4px 12px rgba(0,182,160,0.3)}
 .btn-ghost{background:transparent; color:var(--text-light); border:1px solid var(--line)}
 .btn-ghost:hover{background:var(--surface-2); border-color:var(--brand)}
 
