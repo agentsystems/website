@@ -88,7 +88,7 @@ html{
 }
 
 .feature-icon .ph {
-  font-size: 1.68em;  /* was 1.4em, now 20% larger */
+  font-size: 1.2em;  /* reduced from 1.68em */
   margin: 0;
   color: white;
 }
