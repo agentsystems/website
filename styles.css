@@ -71,7 +71,7 @@ html{
   display: inline-block;
   vertical-align: middle;
   margin-right: 6px;
-  font-size: 1.1em;
+  font-size: 1.32em;  /* was 1.1em, now 20% larger */
 }
 
 .btn .ph {
@@ -82,26 +82,26 @@ html{
 .card a .ph {
   margin-left: 4px;
   margin-right: 0;
-  font-size: 0.9em;
+  font-size: 1.08em;  /* was 0.9em, now 20% larger */
 }
 
 .feature-icon .ph {
-  font-size: 2em;
+  font-size: 1.68em;  /* was 1.4em, now 20% larger */
   margin: 0;
-  color: var(--brand);
+  color: white;
 }
 
 .card h3 .ph,
 .feature h3 .ph {
   color: var(--brand);
-  margin-right: 10px;
-  font-size: 1.1em;
+  margin-right: 6px;
+  font-size: 1.32em;  /* was 1.1em, now 20% larger */
 }
 
 .card h3 {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .card-highlight h3 .ph {
@@ -111,8 +111,8 @@ html{
 .timeline h4 .ph,
 .step h4 .ph {
   color: var(--brand);
-  margin-right: 8px;
-  font-size: 1em;
+  margin-right: 4px;
+  font-size: 1.2em;  /* was 1em, now 20% larger */
 }
 body{
   margin:0;
@@ -157,8 +157,12 @@ body{
 }
 .btn-primary{background:var(--gradient); color:var(--bg-dark); font-weight:600;}
 .btn-primary:hover{opacity:0.9; transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,182,160,0.3)}
-.btn-ghost{background:transparent; color:var(--text-dark); border:1px solid rgba(255,255,255,.15)}
-.btn-ghost:hover{background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.25)}
+.btn-ghost{background:transparent; color:var(--text-light); border:1px solid var(--line)}
+.btn-ghost:hover{background:var(--surface-2); border-color:var(--brand)}
+
+/* Ghost buttons on dark backgrounds */
+.hero .btn-ghost, .nav .btn-ghost{color:var(--text-dark); border:1px solid rgba(255,255,255,.15)}
+.hero .btn-ghost:hover, .nav .btn-ghost:hover{background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.25)}
 
 /* Hero */
 .hero{
@@ -301,31 +305,8 @@ p.lead{font-size:var(--body); color:var(--text-secondary); margin:0 0 32px; line
 
 /* Timeline */
 .timeline{position:relative; margin-top:10px}
-.step{display:grid; grid-template-columns:80px 1fr; gap:18px; padding:22px 0; border-top:1px dashed var(--line)}
+.step{display:block; padding:22px 0; border-top:1px dashed var(--line)}
 .step:first-child{border-top:0}
-/* Techie timeline numbers */
-.step .num{
-  font-weight:700;
-  color:var(--brand);
-  font-size:28px;
-  font-family:var(--font-mono);
-  position:relative;
-  display:inline-block;
-  padding:8px 16px;
-  background:rgba(0,182,160,0.1);
-  border:1px solid rgba(0,182,160,0.3);
-  border-radius:8px;
-}
-.step .num::after {
-  content:'';
-  position:absolute;
-  top:50%;
-  left:100%;
-  width:40px;
-  height:1px;
-  background:linear-gradient(90deg, var(--brand), transparent);
-  transform:translateY(-50%);
-}
 .step h4{font-size:18px; margin:0 0 6px; color:var(--text-light); font-weight:600}
 .muted{color:var(--text-muted)}
 
@@ -348,24 +329,6 @@ p.lead{font-size:var(--body); color:var(--text-secondary); margin:0 0 32px; line
   font-size:24px;
   flex-shrink:0;
   box-shadow:0 4px 12px rgba(0,182,160,0.2), 0 0 20px rgba(0,182,160,0.1);
-  position:relative;
-  overflow:hidden;
-}
-/* Add subtle pulse animation */
-.feature-icon::after {
-  content:'';
-  position:absolute;
-  top:-50%;
-  left:-50%;
-  width:200%;
-  height:200%;
-  background:linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-  transform:rotate(45deg);
-  animation:iconShine 3s infinite;
-}
-@keyframes iconShine {
-  0% {transform:translateX(-100%) translateY(-100%) rotate(45deg);}
-  100% {transform:translateX(100%) translateY(100%) rotate(45deg);}
 }
 .feature h3{font-size:20px; margin:0 0 8px; color:var(--text-light)}
 .feature p{margin:0; color:var(--text-secondary); line-height:1.6}
@@ -397,7 +360,7 @@ code{
   background:var(--gradient);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  text-shadow: 0 0 30px rgba(0,182,160,0.5);
+  text-shadow: 0 0 10px rgba(0,182,160,0.2);
   letter-spacing:-1px;
   position:relative;
   display:inline-block;
@@ -412,8 +375,8 @@ code{
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: blur(8px);
-  opacity: 0.5;
+  filter: blur(4px);
+  opacity: 0.3;
 }
 .stat p{
   margin:8px 0 0;

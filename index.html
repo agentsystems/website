@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AgentSystems — Open-Source Platform for Self-Hosted AI Agents</title>
-  <meta name="description" content="Open-source control plane for AI agents. Deploy on your infrastructure with container isolation, audit trails, and egress controls." />
+  <meta name="description" content="Open-source control plane for AI agents. Deploy on your infrastructure with container separation, audit trails, and egress management capabilities." />
   <meta property="og:title" content="AgentSystems — Open-Source Platform for Self-Hosted AI Agents" />
-  <meta property="og:description" content="Open-source control plane for AI agents. Deploy on your infrastructure with container isolation and audit trails." />
+  <meta property="og:description" content="Open-source control plane for AI agents. Deploy on your infrastructure with container separation and audit trails." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://agentsystems.ai" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -20,7 +20,6 @@
 
   <!-- Phosphor Icons -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
@@ -49,7 +48,7 @@
   <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="hero-inner">
       <h1 id="hero-title" class="h1">Self-hosted AI agents on your infrastructure</h1>
-      <p class="sub">Open-source platform for running AI agents. Deploy on your own infrastructure with container isolation, multiple provider support, and audit trail capabilities. Explore an alternative to cloud-hosted solutions.</p>
+      <p class="sub">Open-source platform for running AI agents. Deploy on your own infrastructure with container separation, multiple provider support, and audit trail capabilities. Explore an alternative to cloud-hosted solutions.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#quickstart"><i class="ph ph-rocket-launch"></i> Get Started</a>
         <a class="btn btn-ghost" href="https://github.com/agentsystems/agentsystems" target="_blank" rel="noopener"><i class="ph ph-star"></i> Star on GitHub</a>
@@ -72,17 +71,17 @@ agentsystems up
   <!-- WHY AGENTSYSTEMS -->
   <section id="approach" aria-labelledby="approach-title">
     <div class="wrap">
-      <span class="pill">Platform Architecture</span>
-      <h2 id="approach-title">Why AgentSystems?</h2>
+      <span class="pill">Why AgentSystems</span>
+      <h2 id="approach-title">Manage Your AI Infrastructure</h2>
       <p class="lead">
-        Many AI platforms operate as cloud services. AgentSystems is a self-hosted control plane designed to run on your infrastructure. Agents run in containers, API calls can be logged, and you maintain control over the deployment.
+        Many AI platforms operate as cloud services. AgentSystems is a self-hosted control plane designed to run on your infrastructure. Agents run in containers, API calls can be logged, and you can manage deployment configuration.
       </p>
 
       <div class="feature-grid">
         <div class="feature">
           <div class="feature-icon"><i class="ph ph-shield-check"></i></div>
           <div>
-            <h3>Data Location Control</h3>
+            <h3>Data Location Management</h3>
             <p>Process data within your own environment. Deploy on-premises, in your VPC, or in air-gapped networks with local model support. Designed for scenarios where data location matters.</p>
           </div>
         </div>
@@ -97,7 +96,7 @@ agentsystems up
           <div class="feature-icon"><i class="ph ph-lock"></i></div>
           <div>
             <h3>Security Features</h3>
-            <p>Agents run in Docker containers. Outbound requests can be routed through an HTTP CONNECT proxy with URL allowlisting. Audit trail functionality uses SHA-256 hash chaining.</p>
+            <p>Agents run in Docker containers. Outbound requests can be routed through an HTTP CONNECT proxy with URL allowlisting. Audit trail functionality designed to use SHA-256 hash chaining.</p>
           </div>
         </div>
       </div>
@@ -119,7 +118,7 @@ agentsystems up
 
       <div class="grid cards-4">
         <div class="card"><h3><i class="ph ph-house"></i> Self-Hosted</h3><p>Deploy on laptops, servers, or Kubernetes according to your requirements.</p></div>
-        <div class="card"><h3><i class="ph ph-cube"></i> Container-Native</h3><p>Agents run as Docker containers with resource isolation and health check support.</p></div>
+        <div class="card"><h3><i class="ph ph-cube"></i> Container-Native</h3><p>Agents run as Docker containers with resource boundaries and health check support.</p></div>
         <div class="card"><h3><i class="ph ph-eye"></i> Observable</h3><p>Tracing integration with Langfuse available for monitoring LLM calls and agent execution.</p></div>
         <div class="card"><h3><i class="ph ph-file-text"></i> Audit Trail</h3><p>Hash-chained audit logs that may be useful for compliance workflows.</p></div>
       </div>
@@ -136,35 +135,31 @@ agentsystems up
   <section class="alt" aria-labelledby="arch-title">
     <div class="wrap">
       <span class="pill">How It Works</span>
-      <h2 id="arch-title">Platform Architecture</h2>
+      <h2 id="arch-title">Gateway-Based Agent Orchestration</h2>
       <p class="lead">
         AgentSystems uses a gateway architecture. The gateway routes requests to containerized agents, logs activity to an audit trail, and manages container lifecycle.
       </p>
 
       <div class="timeline">
         <div class="step">
-          <div class="num">1</div>
           <div>
             <h4><i class="ph ph-arrow-right"></i> Request arrives at gateway</h4>
             <p class="muted">HTTP request hits the control plane on port 18080, generates a unique thread ID for tracking</p>
           </div>
         </div>
         <div class="step">
-          <div class="num">2</div>
           <div>
             <h4><i class="ph ph-magnifying-glass"></i> Gateway discovers agent</h4>
             <p class="muted">Attempts to find target agent via Docker labels, starts container if needed, checks health status</p>
           </div>
         </div>
         <div class="step">
-          <div class="num">3</div>
           <div>
             <h4><i class="ph ph-gear"></i> Agent processes request</h4>
-            <p class="muted">Isolated container handles the request, saves artifacts to thread-specific directory</p>
+            <p class="muted">Containerized environment handles the request, saves artifacts to thread-specific directory</p>
           </div>
         </div>
         <div class="step">
-          <div class="num">4</div>
           <div>
             <h4><i class="ph ph-file-lock"></i> Audit trail logging</h4>
             <p class="muted">Request, response, and metadata logging available with cryptographic hash chaining</p>
@@ -173,7 +168,7 @@ agentsystems up
       </div>
 
       <div class="grid cards-4 mt-32">
-        <div class="card"><h3><i class="ph ph-git-branch"></i> Thread Isolation</h3><p>Requests receive unique thread IDs with separate artifact storage</p></div>
+        <div class="card"><h3><i class="ph ph-git-branch"></i> Thread Separation</h3><p>Requests receive unique thread IDs with separate artifact storage</p></div>
         <div class="card"><h3><i class="ph ph-arrows-clockwise"></i> Auto Lifecycle</h3><p>Containers can start on demand and stop when idle</p></div>
         <div class="card"><h3><i class="ph ph-chart-line"></i> Progress Tracking</h3><p>Progress updates available for long-running operations</p></div>
         <div class="card"><h3><i class="ph ph-stack"></i> Multi-Registry</h3><p>Support for pulling agents from Docker registries with authentication</p></div>
@@ -185,11 +180,11 @@ agentsystems up
   <section id="industries" aria-labelledby="use-title">
     <div class="wrap">
       <span class="pill">Use Cases</span>
-      <h2 id="use-title">Potential Use Cases</h2>
+      <h2 id="use-title">Deploy Anywhere, Serve Anyone</h2>
       <p class="lead">AgentSystems may be suitable for various scenarios where self-hosted infrastructure is preferred.</p>
 
       <div class="grid cards-2">
-        <div class="card card-highlight">
+        <div class="card">
           <h3><i class="ph ph-heart-half"></i> Healthcare & Life Sciences</h3>
           <p>Deploy within existing healthcare infrastructure. Process data in your environment while exploring AI capabilities. Consult your compliance team regarding specific requirements.</p>
         </div>
@@ -226,7 +221,7 @@ agentsystems up
   <section id="quickstart" class="alt" aria-labelledby="quick-title">
     <div class="wrap">
       <span class="pill">Getting Started</span>
-      <h2 id="quick-title">Getting Started</h2>
+      <h2 id="quick-title">Deploy in Minutes, Scale When Ready</h2>
       <p class="lead">Deploy the platform with a few commands. Run your first agent shortly after.</p>
 
       <div class="grid cards-2 mb-32">
@@ -245,7 +240,7 @@ agentsystems up
             <li>Control plane gateway on port 18080</li>
             <li>Web UI on port 3001</li>
             <li>PostgreSQL for audit trails</li>
-            <li>HTTP proxy for egress control</li>
+            <li>HTTP proxy for egress management</li>
           </ul>
         </div>
       </div>
@@ -266,24 +261,6 @@ open http://localhost:3001
 <span class="code-comment"># 5. (Optional) Download a local model for testing</span>
 docker exec ollama ollama pull llama3.2</pre>
 
-      <h3 class="h3 mt-32">Deploy Your First Agent</h3>
-
-      <pre class="code"><span class="code-comment"># Use the agent template</span>
-git clone https://github.com/agentsystems/agent-template my-agent
-cd my-agent
-
-<span class="code-comment"># Build your agent container</span>
-docker build -t my-agent:latest .
-
-<span class="code-comment"># Add to your deployment</span>
-cd ../my-deployment
-# Edit docker-compose.yml to include your agent
-
-<span class="code-comment"># Deploy and run</span>
-agentsystems up
-agentsystems run my-agent '{"prompt": "Hello, AgentSystems!"}'
-</pre>
-
       <div class="row-cta">
         <a class="btn btn-primary" href="https://docs.agentsystems.ai/getting-started/quickstart" target="_blank" rel="noopener"><i class="ph ph-book-bookmark"></i> Full Documentation</a>
         <a class="btn btn-ghost" href="https://github.com/agentsystems/agent-template" target="_blank" rel="noopener"><i class="ph ph-package"></i> Agent Template</a>
@@ -295,8 +272,8 @@ agentsystems run my-agent '{"prompt": "Hello, AgentSystems!"}'
   <!-- COMPONENTS -->
   <section id="implementation" aria-labelledby="comp-title">
     <div class="wrap">
-      <span class="pill">Platform Components</span>
-      <h2 id="comp-title">Platform Components</h2>
+      <span class="pill">Components</span>
+      <h2 id="comp-title">Five Building Blocks, Infinite Possibilities</h2>
       <p class="lead">Five components that form the AgentSystems platform.</p>
 
       <div class="grid cards-2">
@@ -342,8 +319,8 @@ agentsystems run my-agent '{"prompt": "Hello, AgentSystems!"}'
   <!-- COMMUNITY -->
   <section class="alt" aria-labelledby="comm-title">
     <div class="wrap">
-      <span class="pill">Open Source Community</span>
-      <h2 id="comm-title">Join the Open Source Community</h2>
+      <span class="pill">Community</span>
+      <h2 id="comm-title">Built in the Open, By the Community</h2>
       <p class="lead">AgentSystems is built in the open by a community of developers interested in self-hosted AI infrastructure.</p>
 
       <div class="grid cards-4">
@@ -383,15 +360,15 @@ agentsystems run my-agent '{"prompt": "Hello, AgentSystems!"}'
   <!-- ROADMAP -->
   <section id="contact" aria-labelledby="roadmap-title">
     <div class="wrap">
-      <span class="pill">What's Next</span>
-      <h2 id="roadmap-title">Roadmap</h2>
+      <span class="pill">Roadmap</span>
+      <h2 id="roadmap-title">What's Coming Next</h2>
       <p class="lead">AgentSystems is under active development with attention to security and developer experience.</p>
 
       <div class="grid cards-2">
         <div>
           <h3 class="h3 text-brand">Currently Available</h3>
           <ul class="spaced-list">
-            <li>Container-based agent isolation</li>
+            <li>Container-based agent separation</li>
             <li>Multi-provider model support (OpenAI, Anthropic, Bedrock, Ollama)</li>
             <li>HTTP CONNECT proxy with URL allowlisting</li>
             <li>Hash-chained audit trail functionality</li>
@@ -432,6 +409,7 @@ agentsystems run my-agent '{"prompt": "Hello, AgentSystems!"}'
     <div class="wrap text-center">
       <small>
         <strong>AgentSystems</strong> is open-source software licensed under Apache 2.0<br>
+        Provided "AS IS" without warranties. Users are responsible for their own deployments.<br>
         Built by the community<br>
         <a href="https://github.com/agentsystems" class="link-muted">GitHub</a> •
         <a href="https://discord.gg/bXgbDNpj" class="link-muted">Discord</a> •
