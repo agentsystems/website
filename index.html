@@ -48,7 +48,7 @@
   <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="hero-inner">
       <h1 id="hero-title" class="h1">Self-hosted AI agents on your infrastructure</h1>
-      <p class="sub">Open-source platform for running AI agents. Deploy on your own infrastructure with container separation, multiple provider support, and audit trail capabilities. Explore an alternative to cloud-hosted solutions.</p>
+      <p class="sub">Open-source platform for AI sovereignty. Run agents locally with your choice of providers - OpenAI, Anthropic, Bedrock, or local models. Manage your data, credentials, and compute on your infrastructure.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#quickstart"><i class="ph ph-rocket-launch"></i> Get Started</a>
         <a class="btn btn-ghost" href="https://github.com/agentsystems/agentsystems" target="_blank" rel="noopener"><i class="ph ph-star"></i> Star on GitHub</a>
@@ -56,14 +56,16 @@
       </div>
       <div>
         <p class="tiny">Apache 2.0 Licensed • Self-hosted • <a href="https://docs.agentsystems.ai" class="link-white">Documentation</a></p>
-        <pre class="code"><span class="code-comment"># Install once</span>
+        <pre class="code"><span class="code-comment"># Install</span>
 curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download/install.sh | sh
 
-<span class="code-comment"># Deploy anywhere</span>
+<span class="code-comment"># Deploy</span>
 agentsystems init my-deployment && cd my-deployment
 agentsystems up
 
-<span class="code-comment"># Access UI at http://localhost:3001</span></pre>
+<span class="code-comment"># Get local model & open UI</span>
+docker exec agentsystems-ollama-1 ollama pull gemma3:1b
+open http://localhost:3001</pre>
       </div>
     </div>
   </section>
@@ -74,7 +76,7 @@ agentsystems up
       <span class="pill">Why AgentSystems</span>
       <h2 id="approach-title">Manage Your AI Infrastructure</h2>
       <p class="lead">
-        Many AI platforms operate as cloud services. AgentSystems is a self-hosted control plane designed to run on your infrastructure. Agents run in containers, API calls can be logged, and you can manage deployment configuration.
+        While cloud AI services lock you into their infrastructure, AgentSystems is designed for AI sovereignty. Process data locally, switch providers through configuration, and manage your own AI infrastructure.
       </p>
 
       <div class="feature-grid">
@@ -180,8 +182,8 @@ agentsystems up
   <section id="industries" aria-labelledby="use-title">
     <div class="wrap">
       <span class="pill">Use Cases</span>
-      <h2 id="use-title">Deploy Anywhere, Serve Anyone</h2>
-      <p class="lead">AgentSystems may be suitable for various scenarios where self-hosted infrastructure is preferred.</p>
+      <h2 id="use-title">Built for Privacy-First Organizations</h2>
+      <p class="lead">Organizations that need to manage their own data and AI infrastructure while using various model providers.</p>
 
       <div class="grid cards-2">
         <div class="card">
@@ -220,46 +222,44 @@ agentsystems up
   <!-- QUICK START -->
   <section id="quickstart" class="alt" aria-labelledby="quick-title">
     <div class="wrap">
-      <span class="pill">Getting Started</span>
-      <h2 id="quick-title">Deploy in Minutes, Scale When Ready</h2>
-      <p class="lead">Deploy the platform with a few commands. Run your first agent shortly after.</p>
+      <span class="pill">Quick Start</span>
+      <h2 id="quick-title">Deploy in 5 Minutes</h2>
+      <p class="lead">Get AgentSystems running on your machine.</p>
 
       <div class="grid cards-2 mb-32">
         <div class="card">
-          <h3><i class="ph ph-check-circle"></i> Prerequisites</h3>
+          <h3><i class="ph ph-check-circle"></i> Requirements</h3>
           <ul class="feature-list">
             <li>Python 3.11+</li>
-            <li>Docker Desktop (Mac) or Docker Engine (Linux)</li>
-            <li>4GB RAM available</li>
-            <li>10GB disk space</li>
+            <li>Docker</li>
+            <li>macOS or Linux</li>
           </ul>
         </div>
         <div class="card">
-          <h3><i class="ph ph-package"></i> What You Get</h3>
+          <h3><i class="ph ph-rocket-launch"></i> What Starts</h3>
           <ul class="feature-list">
-            <li>Control plane gateway on port 18080</li>
-            <li>Web UI on port 3001</li>
-            <li>PostgreSQL for audit trails</li>
-            <li>HTTP proxy for egress management</li>
+            <li>Control Plane</li>
+            <li>Web UI (port 3001)</li>
+            <li>PostgreSQL</li>
           </ul>
         </div>
       </div>
 
-      <pre class="code"><span class="code-comment"># 1. Install the AgentSystems CLI</span>
+      <pre class="code"><span class="code-comment"># Install</span>
 curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download/install.sh | sh
 
-<span class="code-comment"># 2. Initialize your deployment</span>
+<span class="code-comment"># Initialize</span>
 agentsystems init my-deployment
 cd my-deployment
 
-<span class="code-comment"># 3. Start the platform</span>
+<span class="code-comment"># Start</span>
 agentsystems up
 
-<span class="code-comment"># 4. Open the UI</span>
-open http://localhost:3001
+<span class="code-comment"># Pull local model</span>
+docker exec agentsystems-ollama-1 ollama pull gemma3:1b
 
-<span class="code-comment"># 5. (Optional) Download a local model for testing</span>
-docker exec ollama ollama pull llama3.2</pre>
+<span class="code-comment"># Open UI</span>
+open http://localhost:3001</pre>
 
       <div class="row-cta">
         <a class="btn btn-primary" href="https://docs.agentsystems.ai/getting-started/quickstart" target="_blank" rel="noopener"><i class="ph ph-book-bookmark"></i> Full Documentation</a>
@@ -273,8 +273,8 @@ docker exec ollama ollama pull llama3.2</pre>
   <section id="implementation" aria-labelledby="comp-title">
     <div class="wrap">
       <span class="pill">Components</span>
-      <h2 id="comp-title">Five Building Blocks, Infinite Possibilities</h2>
-      <p class="lead">Five components that form the AgentSystems platform.</p>
+      <h2 id="comp-title">Modular Architecture for AI Sovereignty</h2>
+      <p class="lead">Open-source components working together to enable AI sovereignty - from container orchestration to provider abstraction.</p>
 
       <div class="grid cards-2">
         <div class="card">
@@ -321,7 +321,7 @@ docker exec ollama ollama pull llama3.2</pre>
     <div class="wrap">
       <span class="pill">Community</span>
       <h2 id="comm-title">Built in the Open, By the Community</h2>
-      <p class="lead">AgentSystems is built in the open by a community of developers interested in self-hosted AI infrastructure.</p>
+      <p class="lead">Join a growing community of developers and organizations building their own AI infrastructure. Together, we're exploring approaches to AI sovereignty.</p>
 
       <div class="grid cards-4">
         <div class="card">
@@ -362,7 +362,7 @@ docker exec ollama ollama pull llama3.2</pre>
     <div class="wrap">
       <span class="pill">Roadmap</span>
       <h2 id="roadmap-title">What's Coming Next</h2>
-      <p class="lead">AgentSystems is under active development with attention to security and developer experience.</p>
+      <p class="lead">We're expanding the platform with additional features for managing AI infrastructure, including security capabilities and model provider integration options.</p>
 
       <div class="grid cards-2">
         <div>
