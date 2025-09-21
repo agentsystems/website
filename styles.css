@@ -56,7 +56,10 @@
   --shadow-dark: 0 10px 30px rgba(0,0,0,0.4);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:20px; /* Small offset for better anchor positioning */
+}
 
 /* Smooth transitions */
 * {
@@ -180,7 +183,7 @@ h2::after {
 p.lead{font-size:var(--body); color:var(--text-secondary); margin:0 0 32px; line-height:1.6}
 
 .pill{
-  display:inline-block;
+  display:block;
   font-size:11px;
   font-weight:600;
   color:var(--brand);
@@ -188,10 +191,11 @@ p.lead{font-size:var(--body); color:var(--text-secondary); margin:0 0 32px; line
   border:1px solid rgba(0,182,160,0.2);
   padding:5px 12px;
   border-radius:999px;
-  margin-bottom:24px;
+  margin-bottom:12px;
   text-transform:uppercase;
   letter-spacing:1px;
   font-family:var(--font-mono);
+  width:fit-content;
 }
 
 /* Grids */
