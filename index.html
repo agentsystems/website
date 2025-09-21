@@ -167,9 +167,46 @@
     /* Sections */
     section{padding:72px 20px}
     .wrap{max-width:var(--maxw); margin:0 auto}
-    h2{font-size:var(--h2); line-height:1.2; margin:0 0 10px; color:var(--fg)}
-    p.lead{font-size:var(--body); color:var(--ink-2); margin:0 0 24px}
-    .pill{display:inline-block; font-size:13px; font-weight:700; color:#0a3a38; background:#c8f3ee; border:1px solid #9fe7df; padding:6px 10px; border-radius:999px; margin-bottom:14px}
+
+    /* Techie section headings */
+    h2{
+      font-size:var(--h2);
+      line-height:1.2;
+      margin:0 0 20px;
+      color:var(--text-light);
+      font-weight:700;
+      letter-spacing:-0.5px;
+      position:relative;
+      display:inline-block;
+    }
+    /* Add accent line under h2 */
+    h2::after {
+      content:'';
+      position:absolute;
+      bottom:-8px;
+      left:0;
+      width:60px;
+      height:3px;
+      background:var(--gradient);
+      border-radius:2px;
+    }
+
+    p.lead{font-size:var(--body); color:var(--text-secondary); margin:0 0 32px; line-height:1.6}
+
+    .pill{
+      display:inline-block;
+      font-size:11px;
+      font-weight:600;
+      color:var(--brand);
+      background:rgba(0,182,160,0.1);
+      border:1px solid rgba(0,182,160,0.2);
+      padding:5px 12px;
+      border-radius:999px;
+      margin-bottom:24px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-family:var(--font-mono);
+    }
 
     /* Grids */
     .grid{display:grid; gap:16px}
@@ -179,13 +216,47 @@
     @media (max-width:640px){.cards-4,.cards-2{grid-template-columns:1fr}}
 
     .card{
-      background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow-soft);
-      padding:18px 18px 16px; min-height:120px; transition: all 0.2s ease;
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+      padding:20px;
+      min-height:120px;
+      transition: all 0.3s ease;
+      position:relative;
+      overflow:hidden;
     }
-    .card:hover{box-shadow:var(--shadow); transform:translateY(-2px)}
-    .card h3{font-size:18px; margin:0 0 6px}
-    .card p{margin:0; color:var(--ink-2); font-size:16px}
-    .card-highlight{border:2px solid var(--brand); background:linear-gradient(135deg, rgba(24,176,166,.03) 0%, transparent 100%)}
+    /* Techie hover effect */
+    .card::before {
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:2px;
+      background:var(--gradient);
+      transform:translateX(-100%);
+      transition:transform 0.3s ease;
+    }
+    .card:hover::before {
+      transform:translateX(0);
+    }
+    .card:hover{
+      box-shadow:var(--shadow);
+      transform:translateY(-2px);
+      border-color:rgba(0,182,160,0.3);
+    }
+    .card h3{
+      font-size:18px;
+      margin:0 0 8px;
+      color:var(--text-light);
+      font-weight:600;
+    }
+    .card p{margin:0; color:var(--text-secondary); font-size:15px; line-height:1.5}
+    .card-highlight{
+      border:2px solid var(--brand);
+      background:linear-gradient(135deg, rgba(0,182,160,0.05) 0%, transparent 100%);
+    }
 
     .alt{background:var(--surface-2)}
 
@@ -193,7 +264,29 @@
     .timeline{position:relative; margin-top:10px}
     .step{display:grid; grid-template-columns:80px 1fr; gap:18px; padding:22px 0; border-top:1px dashed var(--line)}
     .step:first-child{border-top:0}
-    .step .num{font-weight:800; color:var(--brand); font-size:22px}
+    /* Techie timeline numbers */
+    .step .num{
+      font-weight:700;
+      color:var(--brand);
+      font-size:28px;
+      font-family:var(--font-mono);
+      position:relative;
+      display:inline-block;
+      padding:8px 16px;
+      background:rgba(0,182,160,0.1);
+      border:1px solid rgba(0,182,160,0.3);
+      border-radius:8px;
+    }
+    .step .num::after {
+      content:'';
+      position:absolute;
+      top:50%;
+      left:100%;
+      width:40px;
+      height:1px;
+      background:linear-gradient(90deg, var(--brand), transparent);
+      transform:translateY(-50%);
+    }
     .step h4{font-size:18px; margin:0 0 6px}
     .muted{color:var(--muted)}
 
@@ -203,7 +296,38 @@
     /* Features */
     .feature-grid{display:grid; gap:24px; margin:32px 0}
     .feature{display:flex; gap:16px; align-items:start}
-    .feature-icon{width:48px; height:48px; background:var(--gradient); border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:24px; flex-shrink:0}
+    /* Techie feature icons */
+    .feature-icon{
+      width:48px;
+      height:48px;
+      background:var(--gradient);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:24px;
+      flex-shrink:0;
+      box-shadow:0 4px 12px rgba(0,182,160,0.2), 0 0 20px rgba(0,182,160,0.1);
+      position:relative;
+      overflow:hidden;
+    }
+    /* Add subtle pulse animation */
+    .feature-icon::after {
+      content:'';
+      position:absolute;
+      top:-50%;
+      left:-50%;
+      width:200%;
+      height:200%;
+      background:linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform:rotate(45deg);
+      animation:iconShine 3s infinite;
+    }
+    @keyframes iconShine {
+      0% {transform:translateX(-100%) translateY(-100%) rotate(45deg);}
+      100% {transform:translateX(100%) translateY(100%) rotate(45deg);}
+    }
     .feature h3{font-size:20px; margin:0 0 8px; color:var(--fg)}
     .feature p{margin:0; color:var(--ink-2); line-height:1.6}
 
@@ -211,12 +335,56 @@
     .badge{display:inline-block; padding:4px 8px; background:var(--brand); color:#fff; border-radius:6px; font-size:12px; font-weight:700; margin-left:8px}
 
     /* Code inline */
-    code{background:#f3f7f9; padding:2px 6px; border-radius:4px; font-family:monospace; font-size:14px}
+    /* Techie inline code styling */
+    code{
+      background:rgba(0,182,160,0.1);
+      padding:4px 8px;
+      border-radius:4px;
+      font-family:var(--font-mono);
+      font-size:13px;
+      color:var(--brand);
+      border:1px solid rgba(0,182,160,0.2);
+      font-weight:500;
+    }
 
     /* Stats */
     .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:32px 0; text-align:center}
-    .stat h3{font-size:36px; margin:0; color:var(--brand); font-weight:800}
-    .stat p{margin:4px 0 0; color:var(--muted); font-size:14px}
+    /* Futuristic stat styling like the UI */
+    .stat h3{
+      font-size:48px;
+      margin:0;
+      font-weight:700;
+      font-family:var(--font-mono);
+      background:var(--gradient);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow: 0 0 30px rgba(0,182,160,0.5);
+      letter-spacing:-1px;
+      position:relative;
+      display:inline-block;
+    }
+    /* Add subtle glow effect */
+    .stat h3::before {
+      content: attr(data-value);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: blur(8px);
+      opacity: 0.5;
+    }
+    .stat p{
+      margin:8px 0 0;
+      color:var(--text-muted);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-weight:600;
+      font-family:var(--font-mono);
+    }
     @media (max-width:640px){.stats{grid-template-columns:1fr}}
 
     /* Footer */
@@ -301,15 +469,15 @@ agentsystems up
 
       <div class="stats">
         <div class="stat">
-          <h3>100%</h3>
+          <h3 data-value="100%">100%</h3>
           <p>Open Source</p>
         </div>
         <div class="stat">
-          <h3>0</h3>
+          <h3 data-value="0">0</h3>
           <p>External Dependencies</p>
         </div>
         <div class="stat">
-          <h3>∞</h3>
+          <h3 data-value="∞">∞</h3>
           <p>Deployment Options</p>
         </div>
       </div>
