@@ -62,7 +62,7 @@
 
       <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <input type="hidden" name="_subject" value="AgentSystems Contact Form">
-        <input type="hidden" name="_from" id="form-source" value="general">
+        <input type="hidden" name="_inquiry_source" id="form-source" value="general">
 
         <div class="form-row">
           <div class="form-group">
@@ -105,7 +105,7 @@
 
         <div class="form-submit">
           <p class="form-note">
-            We typically respond within 1-2 business days. For urgent issues, please join our <a href="https://discord.com/invite/bXgbDNpj" target="_blank" rel="noopener">Discord community</a>.
+            We typically respond within 1-2 business days.
           </p>
           <button type="submit" class="btn btn-primary">
             <i class="ph ph-paper-plane-tilt"></i> Send Message
@@ -149,7 +149,7 @@
   <script>
     // Parse URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    const fromParam = urlParams.get('from');
+    const inquiryParam = urlParams.get('inquiry');
 
     // Context messages for different sources
     const contextMessages = {
@@ -176,33 +176,24 @@
     };
 
     // Set context based on URL parameter
-    if (fromParam) {
+    if (inquiryParam) {
       // Set hidden source field
-      document.getElementById('form-source').value = fromParam;
+      document.getElementById('form-source').value = inquiryParam;
 
       // Show context message if available
-      if (contextMessages[fromParam]) {
+      if (contextMessages[inquiryParam]) {
         const alertDiv = document.getElementById('context-alert');
         const messageSpan = document.getElementById('context-message');
-        messageSpan.textContent = contextMessages[fromParam];
+        messageSpan.textContent = contextMessages[inquiryParam];
         alertDiv.classList.add('show');
       }
 
       // Pre-select inquiry type if mapped
-      if (inquiryTypeMap[fromParam]) {
-        document.getElementById('inquiry-type').value = inquiryTypeMap[fromParam];
+      if (inquiryTypeMap[inquiryParam]) {
+        document.getElementById('inquiry-type').value = inquiryTypeMap[inquiryParam];
       }
     }
 
-    // Auto-scroll to form if coming from a specific source
-    if (fromParam || window.location.hash === '#talk-with-us') {
-      setTimeout(() => {
-        document.getElementById('contact-form').scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }, 100);
-    }
   </script>
 </body>
 </html>
