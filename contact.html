@@ -62,6 +62,7 @@
 
       <form id="contact-form" action="https://submit-form.com/wCVt5aLgJ" method="POST">
         <input type="hidden" name="_inquiry_source" id="form-source" value="general">
+        <input type="hidden" name="_redirect" id="form-redirect" value="">
 
         <div class="form-row">
           <div class="form-group">
@@ -83,15 +84,14 @@
             <label for="inquiry-type">Inquiry Type (optional)</label>
             <select id="inquiry-type" name="inquiry_type">
               <option value="">Select an option</option>
-              <option value="general">General Question</option>
-              <option value="support">Technical Support</option>
-              <option value="bug">Bug Report</option>
-              <option value="feature">Feature Request</option>
-              <option value="enterprise">Enterprise Support</option>
+              <option value="direct-support">Technical Support</option>
               <option value="custom-agent">Custom Agent Development</option>
-              <option value="training">Training & Consulting</option>
-              <option value="partnership">Partnership Opportunity</option>
-              <option value="beta">Beta Program</option>
+              <option value="custom-development">Custom Development</option>
+              <option value="enterprise-support">Enterprise Support</option>
+              <option value="training-consulting">Training & Consulting</option>
+              <option value="partner-program">Partnership Program</option>
+              <option value="beta-program">Beta Program</option>
+              <option value="beta-feedback">Beta Feedback</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -146,33 +146,40 @@
   </footer>
 
   <script>
+    // Set redirect URL to current page with submitted parameter
+    const currentUrl = window.location.href.split('?')[0];
+    document.getElementById('form-redirect').value = currentUrl + '?submitted=true';
+
     // Parse URL parameters
     const urlParams = new URLSearchParams(window.location.search);
+
+    // Check if form was just submitted
+    if (urlParams.get('submitted') === 'true') {
+      const alertDiv = document.getElementById('context-alert');
+      const messageSpan = document.getElementById('context-message');
+      messageSpan.textContent = 'Thank you for contacting us! We\'ll respond within 1-2 business days.';
+      alertDiv.classList.add('show');
+
+      // Clear the submitted parameter from URL without refreshing
+      const newUrl = window.location.pathname;
+      window.history.replaceState({}, document.title, newUrl);
+    }
+
     const inquiryParam = urlParams.get('inquiry');
 
     // Context messages for different sources
     const contextMessages = {
-      'direct-support': 'Looking for direct support? We\'re here to help.',
-      'custom-agent': 'Interested in custom agent development? Tell us about your requirements.',
-      'beta-program': 'Want to join our beta program? Let us know your use case.',
-      'enterprise-support': 'Exploring enterprise support options? Tell us about your requirements.',
-      'custom-development': 'Need custom workflow automation? Describe your project requirements.',
-      'training-consulting': 'Looking for training or consulting services? Tell us about your team\'s needs.',
-      'partner-program': 'Interested in becoming a partner? Share your integration ideas.',
-      'beta-feedback': 'Thank you for participating in our beta! Share your feedback below.'
+      'direct-support': 'Looking for technical support? Share what you need help with.',
+      'custom-agent': 'Interested in custom agent development? Describe what you have in mind.',
+      'beta-program': 'Joining the beta program? Tell us about your use case.',
+      'enterprise-support': 'Exploring enterprise support? Share your organization\'s needs.',
+      'custom-development': 'Need custom development? Outline your project goals.',
+      'training-consulting': 'Considering training or consulting? Describe what would be helpful.',
+      'partner-program': 'Interested in partnership? Tell us about your organization.',
+      'beta-feedback': 'Thanks for testing the beta. Share your experience and suggestions.'
     };
 
-    // Inquiry type mapping
-    const inquiryTypeMap = {
-      'direct-support': 'support',
-      'custom-agent': 'custom-agent',
-      'beta-program': 'beta',
-      'enterprise-support': 'enterprise',
-      'custom-development': 'custom-agent',
-      'training-consulting': 'training',
-      'partner-program': 'partnership',
-      'beta-feedback': 'beta'
-    };
+    // No mapping needed - URL parameters match select values directly
 
     // Set context based on URL parameter
     if (inquiryParam) {
@@ -187,9 +194,9 @@
         alertDiv.classList.add('show');
       }
 
-      // Pre-select inquiry type if mapped
-      if (inquiryTypeMap[inquiryParam]) {
-        document.getElementById('inquiry-type').value = inquiryTypeMap[inquiryParam];
+      // Pre-select inquiry type directly
+      if (inquiryParam) {
+        document.getElementById('inquiry-type').value = inquiryParam;
       }
     }
 
