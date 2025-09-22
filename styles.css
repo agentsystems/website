@@ -274,11 +274,18 @@ p.lead{font-size:18px; color:var(--text-secondary); margin:0 0 40px; line-height
 .grid{display:grid; gap:16px}
 .cards-4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .cards-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.feature-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin:48px 0}
 @media (max-width:1000px){
   .cards-4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .feature-grid{grid-template-columns:1fr}
 }
-@media (max-width:640px){.cards-4,.cards-2{grid-template-columns:1fr}}
+@media (max-width:768px){
+  .feature-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .cards-4,.cards-2{grid-template-columns:1fr}
+  .feature-grid{grid-template-columns:1fr; gap:24px}
+}
 
 .card{
   background:rgba(255, 255, 255, 0.8);
@@ -345,7 +352,6 @@ p.lead{font-size:18px; color:var(--text-secondary); margin:0 0 40px; line-height
 .row-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:12px}
 
 /* Features */
-.feature-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin:48px 0}
 .feature{display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px}
 /* Modern feature icons */
 .feature-icon{
