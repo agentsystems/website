@@ -274,7 +274,10 @@ p.lead{font-size:18px; color:var(--text-secondary); margin:0 0 40px; line-height
 .grid{display:grid; gap:16px}
 .cards-4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .cards-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-@media (max-width:1000px){.cards-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1000px){
+  .cards-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .feature-grid{grid-template-columns:1fr}
+}
 @media (max-width:640px){.cards-4,.cards-2{grid-template-columns:1fr}}
 
 .card{
@@ -342,19 +345,19 @@ p.lead{font-size:18px; color:var(--text-secondary); margin:0 0 40px; line-height
 .row-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:12px}
 
 /* Features */
-.feature-grid{display:grid; gap:24px; margin:32px 0}
-.feature{display:flex; gap:16px; align-items:start}
+.feature-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin:48px 0}
+.feature{display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px}
 /* Modern feature icons */
 .feature-icon{
-  width:52px;
-  height:52px;
+  width:64px;
+  height:64px;
   background:var(--gradient);
   border-radius:16px;
   display:flex;
   align-items:center;
   justify-content:center;
   color:white;
-  font-size:24px;
+  font-size:28px;
   flex-shrink:0;
   box-shadow:0 4px 8px rgba(0,0,0,0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -437,7 +440,6 @@ code{
   .hero-inner .sub{font-size:15px;}
   .wrap{padding:0 16px;}
   h2{font-size:24px;}
-  .feature-grid{grid-template-columns:1fr;}
   .row-cta{flex-direction:column; width:100%;}
   .row-cta .btn{width:100%; justify-content:center;}
   .pill{font-size:11px; padding:4px 10px;}
