@@ -16,8 +16,8 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          # avoid "host authenticity" prompt
-          echo "agentsystems.ai ssh-ed25519 $(ssh-keyscan -t ed25519 agentsystems.ai 2>/dev/null | awk '{print $2,$3}')" >> ~/.ssh/known_hosts
+          # Add server's ED25519 host key from secret
+          echo "agentsystems.ai ${{ secrets.HOST_KEY }}" >> ~/.ssh/known_hosts
 
       - name: Deploy via rsync
         run: |
