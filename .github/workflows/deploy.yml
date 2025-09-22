@@ -1,0 +1,26 @@
+name: Deploy static site
+
+on:
+  workflow_dispatch:   # 👈 gives you the "Run workflow" button in GitHub Actions
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          # avoid "host authenticity" prompt
+          echo "agentsystems.ai ssh-ed25519 $(ssh-keyscan -t ed25519 agentsystems.ai 2>/dev/null | awk '{print $2,$3}')" >> ~/.ssh/known_hosts
+
+      - name: Deploy via rsync
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
+            ./ deploy@agentsystems.ai:/var/www/mysite
