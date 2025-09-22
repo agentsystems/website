@@ -632,9 +632,9 @@ footer{padding:28px 20px; color:#55737f; border-top:1px solid var(--line)}
 
 /* Utility Classes */
 .link-white{color:#fff; text-decoration:none}
-.link-white:hover{text-decoration:underline}
+.link-white:hover{opacity:0.9}
 .link-brand{color:var(--brand); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:4px}
-.link-brand:hover{text-decoration:underline}
+.link-brand:hover{opacity:0.9}
 .link-muted{color:var(--text-muted); text-decoration:none}
 .link-muted:hover{color:var(--text-secondary)}
 .code-comment{color:var(--brand)}
