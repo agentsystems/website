@@ -167,7 +167,7 @@ body{
   font-size:15px;
 }
 .btn-primary{background:var(--gradient); color:var(--bg-dark); font-weight:600;}
-.btn-primary:hover{opacity:0.95; box-shadow:0 6px 16px rgba(0,0,0,0.1); transform:translateY(-2px);}
+.btn-primary:hover{opacity:0.9; box-shadow:0 2px 8px rgba(0,0,0,0.08);}
 .btn-ghost{background:transparent; color:var(--text-light); border:1px solid var(--line)}
 .btn-ghost:hover{background:var(--surface-2); border-color:var(--brand)}
 
@@ -309,6 +309,11 @@ p.lead{font-size:18px; color:var(--text-secondary); margin:0 0 40px; line-height
   transform:translateY(-4px) scale(1.02);
   background:rgba(255, 255, 255, 0.95);
   border-color:rgba(0,182,160,0.2);
+}
+/* No hover effects for cards with CTAs */
+.card.text-center:hover{
+  transform:none;
+  box-shadow:0 4px 6px rgba(0,0,0,0.04);
 }
 .card h3{
   font-size:19px;
