@@ -175,7 +175,28 @@
       'beta-feedback': 'Thanks for testing the beta. Share your experience and suggestions.'
     };
 
-    // No mapping needed - URL parameters match select values directly
+    // Placeholder messages for different inquiry types
+    const placeholderMessages = {
+      'direct-support': 'Please describe the technical issue you\'re experiencing...',
+      'custom-agent': 'Please describe the agent functionality you need...',
+      'beta-program': 'Please tell us about your use case and how you plan to use AgentSystems...',
+      'enterprise-support': 'Please describe your organization\'s requirements...',
+      'custom-development': 'Please outline your project requirements and timeline...',
+      'training-consulting': 'Please describe your team\'s needs and goals...',
+      'partner-program': 'Please tell us about your organization and partnership interests...',
+      'beta-feedback': 'Please share your experience and any suggestions for improvement...',
+      'other': 'Please describe how we can help you...',
+      '': 'Please describe how we can help you...'
+    };
+
+    // Update placeholder when inquiry type changes
+    const inquirySelect = document.getElementById('inquiry-type');
+    const messageTextarea = document.getElementById('message');
+
+    inquirySelect.addEventListener('change', function() {
+      const selectedValue = this.value;
+      messageTextarea.placeholder = placeholderMessages[selectedValue] || placeholderMessages[''];
+    });
 
     // Set context based on URL parameter
     if (inquiryParam) {
@@ -190,9 +211,10 @@
         alertDiv.classList.add('show');
       }
 
-      // Pre-select inquiry type directly
+      // Pre-select inquiry type and update placeholder
       if (inquiryParam) {
         document.getElementById('inquiry-type').value = inquiryParam;
+        messageTextarea.placeholder = placeholderMessages[inquiryParam] || placeholderMessages[''];
       }
     }
 
