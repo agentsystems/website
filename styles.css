@@ -146,10 +146,11 @@ body{
 }
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff;}
 .brand .logo{
-  height:28px;
+  height:36px;
   width:auto;
   display:inline-block;
   object-fit: contain;
+  vertical-align: middle;
 }
 .brand span{font-weight:700; letter-spacing:.2px;}
 .nav-fill{flex:1}
@@ -166,7 +167,7 @@ body{
   font-size:15px;
 }
 .btn-primary{background:var(--gradient); color:var(--bg-dark); font-weight:600;}
-.btn-primary:hover{opacity:0.95; box-shadow:0 8px 24px rgba(0,182,160,0.35); transform:translateY(-2px);}
+.btn-primary:hover{opacity:0.95; box-shadow:0 6px 16px rgba(0,0,0,0.1); transform:translateY(-2px);}
 .btn-ghost{background:transparent; color:var(--text-light); border:1px solid var(--line)}
 .btn-ghost:hover{background:var(--surface-2); border-color:var(--brand)}
 
@@ -247,7 +248,7 @@ h2::after {
 p.lead{font-size:18px; color:var(--text-secondary); margin:0 0 40px; line-height:1.7; font-weight:400;}
 
 .pill{
-  display:inline-block;
+  display:block;
   font-size:12px;
   font-weight:600;
   color:var(--brand);
@@ -304,9 +305,10 @@ p.lead{font-size:18px; color:var(--text-secondary); margin:0 0 40px; line-height
   transform:translateX(0);
 }
 .card:hover{
-  box-shadow: 0 20px 40px rgba(0,182,160,0.15), 0 0 0 1px rgba(0,182,160,0.2);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
   transform:translateY(-4px) scale(1.02);
   background:rgba(255, 255, 255, 0.95);
+  border-color:rgba(0,182,160,0.2);
 }
 .card h3{
   font-size:19px;
@@ -348,12 +350,12 @@ p.lead{font-size:18px; color:var(--text-secondary); margin:0 0 40px; line-height
   color:white;
   font-size:24px;
   flex-shrink:0;
-  box-shadow:0 8px 16px rgba(0,182,160,0.25), 0 0 32px rgba(0,182,160,0.15);
+  box-shadow:0 4px 8px rgba(0,0,0,0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .feature:hover .feature-icon{
   transform: rotate(-5deg) scale(1.1);
-  box-shadow:0 12px 24px rgba(0,182,160,0.35), 0 0 40px rgba(0,182,160,0.2);
+  box-shadow:0 6px 12px rgba(0,0,0,0.12);
 }
 .feature h3{font-size:20px; margin:0 0 8px; color:var(--text-light)}
 .feature p{margin:0; color:var(--text-secondary); line-height:1.6}
@@ -385,23 +387,13 @@ code{
   background:var(--gradient);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  text-shadow: 0 0 10px rgba(0,182,160,0.2);
   letter-spacing:-1px;
   position:relative;
   display:inline-block;
 }
 /* Add subtle glow effect */
 .stat h3::before {
-  content: attr(data-value);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: blur(4px);
-  opacity: 0.3;
+  display: none;
 }
 .stat p{
   margin:8px 0 0;
