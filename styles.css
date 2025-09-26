@@ -189,27 +189,55 @@ body{
   overflow:hidden;
 }
 
-/* Add subtle animated gradient */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 300%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent 0%, transparent 30%, rgba(0,182,160,0.03) 50%, transparent 70%, transparent 100%);
-  animation: shimmer 15s linear infinite;
-  pointer-events: none;
-  transform: translateX(-66.666%);
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-66.666%); }
-  100% { transform: translateX(0%); }
-}
+/* Shimmer animation removed - was causing horizontal scroll on mobile due to 300% width */
 .hero-inner{max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; gap:26px; position:relative; z-index:1}
 .h1{font-size:var(--h1); line-height:1.1; margin:0; color:var(--text-dark); font-weight:800; letter-spacing:-1px}
 .sub{font-size:19px; color:rgba(232,236,241,0.85); max-width:920px; line-height:1.65; font-weight:400;}
+
+/* Hero CTA Row - Container for badge and buttons */
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* License Badge */
+.license-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  background: linear-gradient(135deg, rgba(0, 182, 160, 0.1), rgba(71, 161, 217, 0.1));
+  border: 1px solid rgba(0, 182, 160, 0.3);
+  border-radius: 50px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 12px rgba(0, 182, 160, 0.15);
+  width: fit-content;
+  height: fit-content;
+}
+
+.license-badge .ph-scales {
+  color: #00b6a0;
+  font-size: 18px;
+}
+
+.license-badge .divider {
+  opacity: 0.5;
+}
+
+.license-badge .license-type {
+  background: linear-gradient(135deg, #00b6a0 0%, #47a1d9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
 .hero-cta{display:flex; flex-wrap:wrap; gap:12px}
 .tiny{font-size:var(--small); color:rgba(148,163,184,0.8)}
 
@@ -437,6 +465,9 @@ code{
   .hero{padding:60px 20px 48px;}
   .hero-inner h1{font-size:32px; line-height:1.2;}
   .hero-inner .sub{font-size:16px;}
+  .hero-cta-row{flex-direction:column; align-items:stretch; gap:16px; width:100%;}
+  .license-badge{width:100%; justify-content:center; padding:10px 16px; font-size:13px;}
+  .license-badge .ph-scales{font-size:16px;}
   .hero-cta{flex-direction:column; width:100%;}
   .hero-cta .btn{width:100%; justify-content:center;}
 }
@@ -450,6 +481,15 @@ code{
   .row-cta{flex-direction:column; width:100%;}
   .row-cta .btn{width:100%; justify-content:center;}
   .pill{font-size:11px; padding:4px 10px;}
+  .license-badge{font-size:12px; padding:8px 12px; gap:6px;}
+  .license-badge .divider{display:none;}
+  .license-badge .ph-scales{font-size:14px;}
+  .brand .logo{height:28px;}
+}
+
+/* Very small screens (iPhone SE, etc) */
+@media (max-width:375px) {
+  .brand .logo{height:24px;}
 }
 
 /* Animations */
