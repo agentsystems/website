@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AgentSystems — The Open Platform for AI Agents</title>
-  <meta name="description" content="The open runtime for AI agents, built with zero-trust principles. Deploy third-party and custom agents on your infrastructure. Open-source platform with container-based architecture." />
+  <meta name="description" content="The open runtime for AI agents, designed with a zero-trust approach. Deploy third-party agents on your infrastructure. Open-source platform with container-based architecture." />
   <meta property="og:title" content="AgentSystems — The Open Platform for AI Agents" />
-  <meta property="og:description" content="The open runtime for AI agents, built with zero-trust principles. Deploy third-party and custom agents on your infrastructure." />
+  <meta property="og:description" content="The open runtime for AI agents, designed with a zero-trust approach. Deploy third-party agents on your infrastructure." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://agentsystems.ai" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AgentSystems — The Open Platform for AI Agents" />
-  <meta name="twitter:description" content="The open runtime for AI agents, built with zero-trust principles. Deploy agents on your infrastructure." />
+  <meta name="twitter:description" content="The open runtime for AI agents, designed with a zero-trust approach. Deploy agents on your infrastructure." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="fitted-icon.png">
@@ -49,8 +49,8 @@
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-inner">
-      <h1 id="hero-title" class="h1">The Open Runtime for AI Agents, Designed with a Zero-Trust Approach</h1>
-      <p class="sub">Run third-party and custom agents with zero-trust principles. <strong style="background: linear-gradient(135deg, #00b6a0 0%, #47a1d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600;">Deploy community and commercial AI agents on YOUR infrastructure, from laptop to data center.</strong> Access an emerging ecosystem of specialized agents, all executing where you control the compute.</p>
+      <h1 id="hero-title" class="h1">The Open Runtime for AI Agents</h1>
+      <p class="sub">Run third-party AI agents on infrastructure you control. <strong style="background: linear-gradient(135deg, #00b6a0 0%, #47a1d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600;">AgentSystems combines a federated agent ecosystem, provider portability, and a zero-trust approach</strong> to create portable AI agents that run in your environment—laptop, server, or data center.</p>
       <div class="hero-cta-row">
         <div class="license-badge">
           <i class="ph ph-scales"></i>
@@ -69,13 +69,56 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
     </div>
   </section>
 
+  <!-- KEY INNOVATIONS -->
+  <section class="alt" style="padding-top: 3rem; padding-bottom: 3rem;">
+    <div class="wrap">
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-git-branch"></i></div>
+          <div>
+            <h3>Federated Agent Ecosystem</h3>
+            <p>Git-based agent index using GitHub forks. No central gatekeepers—anyone can operate their own agent index alongside community indexes.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-arrow-u-up-left"></i></div>
+          <div>
+            <h3>Provider Portability</h3>
+            <p>Agents integrate with OpenAI, Anthropic, Bedrock, Ollama—write once, run anywhere. This is the "write once, run anywhere" moment for AI agents.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-shield-check"></i></div>
+          <div>
+            <h3>Designed with a Zero-Trust Approach</h3>
+            <p>Container isolation + egress control for running third-party agents. Credential injection at runtime, hash-chained audit logs, isolated storage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW VIDEO -->
+  <section style="padding-top: 3rem; padding-bottom: 3rem;">
+    <div class="wrap">
+      <span class="pill">Overview</span>
+      <h2>See AgentSystems in Action</h2>
+      <p class="lead" style="margin-bottom: 2rem;">
+        Watch the 100-second overview below or dive into the <a href="https://www.youtube.com/watch?v=G2csNRrVXM8" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">full 9-minute demo and walkthrough</a>.
+      </p>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px;">
+        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/YRDamSh7M-I" title="AgentSystems in 100 Seconds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- WHY AGENTSYSTEMS -->
   <section id="why" class="alt" aria-labelledby="approach-title">
     <div class="wrap">
       <span class="pill">Why AgentSystems</span>
       <h2 id="approach-title">The AI Agent Dilemma: Send your data to third-party AI companies, or build everything yourself</h2>
       <p class="lead">
-        AgentSystems offers another way: Run third-party agents on your infrastructure. Access an emerging ecosystem of community and commercial agents, processing where you control, not building from scratch.
+        AgentSystems offers another way: Run third-party agents on your infrastructure. Access an emerging ecosystem of community agents, processing where you control, not building from scratch.
       </p>
 
       <div class="feature-grid">
@@ -103,9 +146,9 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
       </div>
 
       <div class="grid cards-4 mt-32">
-        <div class="card"><h3><i class="ph ph-house"></i> Flexible Deployment</h3><p>Laptop, server, Kubernetes - deploy anywhere Docker runs.</p></div>
+        <div class="card"><h3><i class="ph ph-house"></i> Flexible Deployment</h3><p>Laptop, server, Kubernetes - works where Docker runs.</p></div>
         <div class="card"><h3><i class="ph ph-eye"></i> Observable</h3><p>Langfuse integration for tracing LLM calls and agent execution.</p></div>
-        <div class="card"><h3><i class="ph ph-file-text"></i> Audit Trail</h3><p>SHA-256 hash-chained logs that track operations.</p></div>
+        <div class="card"><h3><i class="ph ph-file-text"></i> Audit Trail</h3><p>SHA-256 hash-chained logs for operation tracking.</p></div>
         <div class="card"><h3><i class="ph ph-git-branch"></i> Thread Isolation</h3><p>Each request gets a unique thread ID with separate artifacts.</p></div>
       </div>
 
@@ -131,23 +174,23 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
         </div>
 
         <div class="card">
-          <h3><i class="ph ph-heart-half"></i> Healthcare & Life Sciences</h3>
-          <p>Process patient data within your infrastructure for healthcare deployments.</p>
+          <h3><i class="ph ph-briefcase"></i> Startups</h3>
+          <p>Prototype AI products on local infrastructure without managing complex cloud deployments.</p>
         </div>
 
         <div class="card">
-          <h3><i class="ph ph-bank"></i> Financial Services</h3>
-          <p>Process sensitive financial data on-premises with audit trail capabilities.</p>
+          <h3><i class="ph ph-flask"></i> Research Labs</h3>
+          <p>Experiment with multi-agent systems and novel architectures in controlled environments.</p>
         </div>
 
         <div class="card">
-          <h3><i class="ph ph-scales"></i> Legal & Professional Services</h3>
-          <p>Handle confidential documents locally with hash-chained audit trail functionality.</p>
+          <h3><i class="ph ph-buildings"></i> Tech Companies</h3>
+          <p>Build and test internal tooling with AI agents on your own infrastructure.</p>
         </div>
 
         <div class="card">
-          <h3><i class="ph ph-shield-star"></i> Government & Defense</h3>
-          <p>Deploy in air-gapped networks. Run local models without internet connectivity.</p>
+          <h3><i class="ph ph-database"></i> Data Teams</h3>
+          <p>Process proprietary data with agents that run in your environment.</p>
         </div>
       </div>
     </div>
@@ -157,7 +200,7 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
   <section id="quickstart" class="alt" aria-labelledby="quick-title">
     <div class="wrap">
       <span class="pill">Quick Start</span>
-      <h2 id="quick-title">Deploy in 5 Minutes</h2>
+      <h2 id="quick-title">Deploy in Minutes</h2>
       <p class="lead">Get AgentSystems running on your machine.</p>
 
       <div class="grid cards-2 mb-32">
@@ -206,7 +249,7 @@ open http://localhost:3001</pre>
     <div class="wrap">
       <span class="pill">Components</span>
       <h2 id="comp-title">Integrated Platform Components</h2>
-      <p class="lead">All core components are installed and configured together with a single command.</p>
+      <p class="lead">Core components are installed and configured together with a single command.</p>
 
       <div class="grid cards-2">
         <div class="card">
