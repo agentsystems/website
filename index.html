@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AgentSystems — The Open Platform for AI Agents</title>
-  <meta name="description" content="The open runtime for AI agents, designed with a zero-trust approach. Deploy third-party agents on your infrastructure. Open-source platform with container-based architecture." />
+  <meta name="description" content="Self-hosted platform for discovering and running AI agents. Deploy specialized agents on your infrastructure with container isolation, federated discovery, and provider abstraction." />
   <meta property="og:title" content="AgentSystems — The Open Platform for AI Agents" />
-  <meta property="og:description" content="The open runtime for AI agents, designed with a zero-trust approach. Deploy third-party agents on your infrastructure." />
+  <meta property="og:description" content="Self-hosted platform for discovering and running AI agents. Deploy on your infrastructure with container isolation and provider portability." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://agentsystems.ai" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AgentSystems — The Open Platform for AI Agents" />
-  <meta name="twitter:description" content="The open runtime for AI agents, designed with a zero-trust approach. Deploy agents on your infrastructure." />
+  <meta name="twitter:description" content="Self-hosted platform for discovering and running AI agents. Deploy on your infrastructure with container isolation and provider portability." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="fitted-icon.png">
@@ -50,7 +50,7 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-inner">
       <h1 id="hero-title" class="h1">The Open Runtime for AI Agents</h1>
-      <p class="sub">Run third-party AI agents on infrastructure you control. <strong style="background: linear-gradient(135deg, #00b6a0 0%, #47a1d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600;">AgentSystems combines a federated agent ecosystem, provider portability, and a zero-trust approach</strong> to create portable AI agents that run in your environment—laptop, server, or data center.</p>
+      <p class="sub">Run third-party AI agents on infrastructure you control. <strong style="background: linear-gradient(135deg, #00b6a0 0%, #47a1d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600;">AgentSystems combines a federated agent ecosystem, provider portability, and container isolation</strong> to create portable AI agents that run in your environment—laptop, server, or data center.</p>
       <div class="hero-cta-row">
         <div class="license-badge">
           <i class="ph ph-scales"></i>
@@ -90,8 +90,8 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
         <div class="feature">
           <div class="feature-icon"><i class="ph ph-shield-check"></i></div>
           <div>
-            <h3>Designed with a Zero-Trust Approach</h3>
-            <p>Container isolation + egress control for running third-party agents. Credential injection at runtime, hash-chained audit logs, isolated storage.</p>
+            <h3>Container Isolation & Network Controls</h3>
+            <p>Each agent runs in its own Docker container with configurable network egress filtering, thread-scoped artifact storage, and hash-chained audit logs.</p>
           </div>
         </div>
       </div>
@@ -116,37 +116,91 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
   <section id="why" class="alt" aria-labelledby="approach-title">
     <div class="wrap">
       <span class="pill">Why AgentSystems</span>
-      <h2 id="approach-title">The AI Agent Dilemma: Send your data to third-party AI companies, or build everything yourself</h2>
+      <h2 id="approach-title">Teams want to use specialized AI agents but face a dilemma</h2>
       <p class="lead">
-        AgentSystems offers another way: Run third-party agents on your infrastructure. Access an emerging ecosystem of community agents, processing where you control, not building from scratch.
+        Teams need specialized AI agents—codebase migration, research synthesis, visual content analysis, structured data extraction—but face three bad options:
       </p>
 
       <div class="feature-grid">
         <div class="feature">
+          <div class="feature-icon"><i class="ph ph-lock"></i></div>
+          <div>
+            <h3>🔒 SaaS Agents</h3>
+            <p>Require sending data to third parties</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-wrench"></i></div>
+          <div>
+            <h3>🛠️ Building from Scratch</h3>
+            <p>Takes weeks of development per agent (most teams lack ML expertise)</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-cube"></i></div>
+          <div>
+            <h3>🐳 Manual Docker Orchestration</h3>
+            <p>Requires configuring networks, volumes, proxies, and API keys for each agent</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 3rem; margin-bottom: 1rem; text-align: center;">AgentSystems provides a standardized runtime and ecosystem</h3>
+
+      <div class="grid cards-2 mt-32">
+        <div class="card">
+          <h3><i class="ph ph-rocket-launch"></i> For Teams Without Infrastructure Expertise</h3>
+          <p>Single command deployment handles networking, separation, and audit logging</p>
+        </div>
+        <div class="card">
+          <h3><i class="ph ph-building"></i> For Organizations Requiring On-Premises</h3>
+          <p>Run agents on-premises or air-gapped with configurable egress controls</p>
+        </div>
+        <div class="card">
+          <h3><i class="ph ph-package"></i> For Developers Building Products</h3>
+          <p>Browse community agents instead of building from scratch</p>
+        </div>
+        <div class="card">
+          <h3><i class="ph ph-buildings"></i> For Enterprises</h3>
+          <p>Discover, evaluate, and deploy agents with container isolation and audit logging</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KEY BENEFITS -->
+  <section aria-labelledby="benefits-title">
+    <div class="wrap">
+      <span class="pill">Key Benefits</span>
+      <h2 id="benefits-title">Built for Self-Hosting</h2>
+
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-git-branch"></i></div>
+          <div>
+            <h3>Federated Agent Ecosystem</h3>
+            <p>Git-based agent index where developers publish via GitHub forks. Anyone can run their own index alongside the community index. No central authority controls listing or distribution.</p>
+          </div>
+        </div>
+        <div class="feature">
           <div class="feature-icon"><i class="ph ph-shield-check"></i></div>
           <div>
-            <h3>Your Data, Your Environment</h3>
-            <p>Deploy on-premises, in your VPC, or air-gapped networks. Process sensitive data where it lives.</p>
+            <h3>Container Isolation & Network Controls</h3>
+            <p>Each agent runs in its own Docker container with configurable egress filtering, thread-scoped artifact storage, hash-chained audit logs, and lazy startup.</p>
           </div>
         </div>
         <div class="feature">
           <div class="feature-icon"><i class="ph ph-plugs-connected"></i></div>
           <div>
-            <h3>Multiple Model Providers</h3>
-            <p>OpenAI, Anthropic, AWS Bedrock, or local models via Ollama. Switch providers with configuration changes.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="ph ph-lock"></i></div>
-          <div>
-            <h3>Container Isolation</h3>
-            <p>Each agent runs in Docker with resource boundaries. HTTP proxy support with URL allowlisting for egress control.</p>
+            <h3>Provider Portability</h3>
+            <p>Switch from OpenAI to Anthropic to Ollama through configuration. Run the same agent with different models and providers. Reduce vendor lock-in at the agent level.</p>
           </div>
         </div>
       </div>
 
       <div class="grid cards-4 mt-32">
-        <div class="card"><h3><i class="ph ph-house"></i> Flexible Deployment</h3><p>Laptop, server, Kubernetes - works where Docker runs.</p></div>
+        <div class="card"><h3><i class="ph ph-house"></i> Flexible Deployment</h3><p>Laptop, server, Kubernetes—works where Docker runs.</p></div>
         <div class="card"><h3><i class="ph ph-eye"></i> Observable</h3><p>Langfuse integration for tracing LLM calls and agent execution.</p></div>
         <div class="card"><h3><i class="ph ph-file-text"></i> Audit Trail</h3><p>SHA-256 hash-chained logs for operation tracking.</p></div>
         <div class="card"><h3><i class="ph ph-git-branch"></i> Thread Isolation</h3><p>Each request gets a unique thread ID with separate artifacts.</p></div>
@@ -156,90 +210,184 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
   </section>
 
 <!-- USE CASES -->
-  <section id="use-cases" aria-labelledby="use-title">
+  <section id="use-cases" class="alt" aria-labelledby="use-title">
     <div class="wrap">
       <span class="pill">Use Cases</span>
-      <h2 id="use-title">Built for Privacy & Data Sovereignty</h2>
-      <p class="lead">For those who want control over their data, models, and infrastructure.</p>
+      <h2 id="use-title">Example Use Cases</h2>
+      <p class="lead">Concrete examples of what you can build with AgentSystems</p>
 
-      <div class="grid cards-2">
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Personal Projects</h3>
+      <div class="grid cards-3 mb-32">
         <div class="card">
-          <h3><i class="ph ph-user"></i> Privacy-Conscious Individuals</h3>
-          <p>Process personal data locally. Run AI on your own hardware.</p>
+          <h4><i class="ph ph-file-text"></i> Research Synthesis</h4>
+          <p><strong>Input:</strong> 20 PDFs<br><strong>Output:</strong> Structured literature review with citations and theme analysis</p>
         </div>
-
         <div class="card">
-          <h3><i class="ph ph-code"></i> Developers & Makers</h3>
-          <p>Build, test, and run AI agents locally. Great for homelab setups, side projects, and experimentation.</p>
+          <h4><i class="ph ph-code"></i> Codebase Migration</h4>
+          <p><strong>Input:</strong> Legacy Python 2.7 codebase<br><strong>Output:</strong> Python 3.12 implementation with migration notes</p>
         </div>
-
         <div class="card">
-          <h3><i class="ph ph-briefcase"></i> Startups</h3>
-          <p>Prototype AI products on local infrastructure without managing complex cloud deployments.</p>
-        </div>
-
-        <div class="card">
-          <h3><i class="ph ph-flask"></i> Research Labs</h3>
-          <p>Experiment with multi-agent systems and novel architectures in controlled environments.</p>
-        </div>
-
-        <div class="card">
-          <h3><i class="ph ph-buildings"></i> Tech Companies</h3>
-          <p>Build and test internal tooling with AI agents on your own infrastructure.</p>
-        </div>
-
-        <div class="card">
-          <h3><i class="ph ph-database"></i> Data Teams</h3>
-          <p>Process proprietary data with agents that run in your environment.</p>
+          <h4><i class="ph ph-globe"></i> Content Extraction</h4>
+          <p><strong>Input:</strong> Product pages from 10 websites<br><strong>Output:</strong> Structured JSON with pricing, specs, availability</p>
         </div>
       </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Startups & Small Teams</h3>
+      <div class="grid cards-3 mb-32">
+        <div class="card">
+          <h4><i class="ph ph-chart-bar"></i> Report Generation</h4>
+          <p><strong>Input:</strong> CSV exports + template<br><strong>Output:</strong> Formatted PDF with charts, tables, executive summary</p>
+        </div>
+        <div class="card">
+          <h4><i class="ph ph-arrows-clockwise"></i> Data Normalization</h4>
+          <p><strong>Input:</strong> Bank statements from 5 institutions<br><strong>Output:</strong> Standardized transaction records in unified format</p>
+        </div>
+        <div class="card">
+          <h4><i class="ph ph-book-open"></i> Documentation Generation</h4>
+          <p><strong>Input:</strong> Codebase repository<br><strong>Output:</strong> API reference docs with examples and descriptions</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Enterprise & On-Premises</h3>
+      <div class="grid cards-3 mb-32">
+        <div class="card">
+          <h4><i class="ph ph-file-doc"></i> Contract Analysis</h4>
+          <p><strong>Input:</strong> 100-page legal documents<br><strong>Output:</strong> Structured data extraction with clause identification</p>
+        </div>
+        <div class="card">
+          <h4><i class="ph ph-shield-check"></i> Security Audit Workflows</h4>
+          <p><strong>Input:</strong> Application codebase<br><strong>Output:</strong> Vulnerability report with findings</p>
+        </div>
+        <div class="card">
+          <h4><i class="ph ph-clipboard-text"></i> Report Generation</h4>
+          <p><strong>Input:</strong> Internal databases + requirements<br><strong>Output:</strong> Structured reports</p>
+        </div>
+      </div>
+
+      <p class="lead" style="text-align: center; margin-top: 2rem;">
+        <a href="https://agentsystems.github.io/agent-index/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Browse available agents at agentsystems.github.io/agent-index</a>
+      </p>
     </div>
   </section>
 
   <!-- QUICK START -->
-  <section id="quickstart" class="alt" aria-labelledby="quick-title">
+  <section id="quickstart" aria-labelledby="quick-title">
     <div class="wrap">
       <span class="pill">Quick Start</span>
       <h2 id="quick-title">Deploy in Minutes</h2>
-      <p class="lead">Get AgentSystems running on your machine.</p>
+      <p class="lead">Get AgentSystems running with a single command</p>
 
-      <div class="grid cards-2 mb-32">
+      <pre class="code"><span class="code-comment"># One-command install (macOS/Linux)</span>
+curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download/install.sh | sh
+
+<span class="code-comment"># Initialize and start</span>
+agentsystems init agentsystems-platform && cd agentsystems-platform
+agentsystems up
+
+<span class="code-comment"># Open web UI</span>
+open http://localhost:3001</pre>
+
+      <div class="grid cards-3 mb-32">
         <div class="card">
-          <h3><i class="ph ph-check-circle"></i> Requirements</h3>
+          <h3><i class="ph ph-check-circle"></i> What Gets Installed</h3>
           <ul class="feature-list">
-            <li>Python 3.11+</li>
-            <li>Docker</li>
-            <li>macOS or Linux</li>
+            <li>agentsystems CLI</li>
+            <li>Docker (if not present)</li>
+            <li>Required dependencies</li>
           </ul>
         </div>
         <div class="card">
           <h3><i class="ph ph-rocket-launch"></i> What Starts</h3>
           <ul class="feature-list">
-            <li>Control Plane</li>
+            <li>Gateway (port 18080)</li>
             <li>Web UI (port 3001)</li>
             <li>PostgreSQL</li>
+            <li>Agent containers</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><i class="ph ph-laptop"></i> Requirements</h3>
+          <ul class="feature-list">
+            <li>macOS or Linux</li>
+            <li>Works on laptops, servers, VMs</li>
+            <li>Air-gapped capable</li>
           </ul>
         </div>
       </div>
 
-      <pre class="code"><span class="code-comment"># Install on macOS or Linux</span>
-curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download/install.sh | sh
+      <div class="row-cta">
+        <a class="btn btn-primary" href="https://docs.agentsystems.ai/getting-started" target="_blank" rel="noopener"><i class="ph ph-book-bookmark"></i> Full Installation Guide</a>
+      </div>
+    </div>
+  </section>
 
-<span class="code-comment"># Initialize</span>
-agentsystems init my-deployment
-cd my-deployment
+  <!-- COMPARISON -->
+  <section class="alt" aria-labelledby="comparison-title">
+    <div class="wrap">
+      <span class="pill">Comparison</span>
+      <h2 id="comparison-title">How AgentSystems Compares</h2>
 
-<span class="code-comment"># Start</span>
-agentsystems up
+      <div class="feature-grid">
+        <div class="feature">
+          <div>
+            <h3>vs. LangChain/CrewAI</h3>
+            <p>AgentSystems is a runtime for agents built with these frameworks. Your agent code uses LangChain; AgentSystems deploys and runs it.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div>
+            <h3>vs. Portkey/LiteLLM</h3>
+            <p>Different layers. AI gateways route API calls; AgentSystems runs complete applications with workflows and file I/O.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div>
+            <h3>vs. Manual Docker</h3>
+            <p>You can build this yourself. AgentSystems is the pre-built, standardized version with discovery, egress control, audit logs, and artifact management.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<span class="code-comment"># Pull local model</span>
-docker exec agentsystems-ollama-1 ollama pull gemma3:1b
+  <!-- FOR AGENT DEVELOPERS -->
+  <section aria-labelledby="developers-title">
+    <div class="wrap">
+      <span class="pill">For Agent Developers</span>
+      <h2 id="developers-title">Build Once, Reach Self-Hosting Customers</h2>
+      <p class="lead">Some customers won't use your agent if it means sending data to your servers. AgentSystems gives you a distribution channel for those customers.</p>
 
-<span class="code-comment"># Open UI</span>
-open http://localhost:3001</pre>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-number-circle-one"></i></div>
+          <div>
+            <h3>Build Your Agent</h3>
+            <p>Use standard frameworks like LangChain and LangGraph. Wrap in a FastAPI app with /invoke, /health, and /metadata endpoints.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-number-circle-two"></i></div>
+          <div>
+            <h3>Publish to the Index</h3>
+            <p>Git-based publishing via GitHub forks. No approval process—automated validation only.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-number-circle-three"></i></div>
+          <div>
+            <h3>Customers Deploy on Their Infrastructure</h3>
+            <p>Your agent runs on their infrastructure under their control. You don't host or store their data. You focus on agent capabilities, they handle deployment.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem; padding: 1rem; background: var(--surface-2, #f5f5f5); border: 1px solid var(--border, #e0e0e0); border-radius: 0.5rem; font-size: 0.875rem; color: var(--text-muted, #666);">
+        <strong>Note:</strong> AgentSystems does not review or endorse software in any index. All agents are published by third-party developers.
+      </div>
 
       <div class="row-cta">
-        <a class="btn btn-primary" href="https://docs.agentsystems.ai/getting-started/quickstart" target="_blank" rel="noopener"><i class="ph ph-book-bookmark"></i> View Docs</a>
+        <a class="btn btn-primary" href="https://docs.agentsystems.ai/deploy-agents/quickstart" target="_blank" rel="noopener"><i class="ph ph-code"></i> Build an Agent</a>
+        <a class="btn btn-ghost" href="https://docs.agentsystems.ai/deploy-agents/list-on-index" target="_blank" rel="noopener"><i class="ph ph-upload-simple"></i> Publish to Index</a>
       </div>
     </div>
   </section>
@@ -249,7 +397,7 @@ open http://localhost:3001</pre>
     <div class="wrap">
       <span class="pill">Components</span>
       <h2 id="comp-title">Integrated Platform Components</h2>
-      <p class="lead">Core components are installed and configured together with a single command.</p>
+      <p class="lead">Core components work together as a complete system</p>
 
       <div class="grid cards-2">
         <div class="card">
