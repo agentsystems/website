@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AgentSystems — Self-Hosted Platform for AI Agents</title>
-  <meta name="description" content="Self-hosted platform for discovering and running AI agents. Deploy specialized agents on your infrastructure with container isolation, federated discovery, and provider abstraction." />
-  <meta property="og:title" content="AgentSystems — Self-Hosted Platform for AI Agents" />
-  <meta property="og:description" content="Self-hosted platform for discovering and running AI agents. Deploy on your infrastructure with container isolation and provider portability." />
+  <meta name="description" content="Self-hosted app store for AI agents. Browse, install, and run containerized agents on your infrastructure. Visual discovery, streamlined deployment, credential isolation." />
+  <meta property="og:title" content="AgentSystems — Self-Hosted App Store for AI Agents" />
+  <meta property="og:description" content="Browse, install, and run AI agents on your infrastructure. Visual discovery, streamlined deployment, containerized isolation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://agentsystems.ai" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AgentSystems — Self-Hosted Platform for AI Agents" />
-  <meta name="twitter:description" content="Self-hosted platform for discovering and running AI agents. Deploy on your infrastructure with container isolation and provider portability." />
+  <meta name="twitter:title" content="AgentSystems — Self-Hosted App Store for AI Agents" />
+  <meta name="twitter:description" content="Browse, install, and run AI agents on your infrastructure. Visual discovery, streamlined deployment, containerized isolation." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="fitted-icon.png">
@@ -49,8 +49,8 @@
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-inner">
-      <h1 id="hero-title" class="h1">Self-hosted platform for discovering and running AI agents</h1>
-      <p class="sub">Deploy specialized agents on your infrastructure—without building from scratch or using SaaS. <strong style="background: linear-gradient(135deg, #00b6a0 0%, #47a1d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600;">AgentSystems combines a federated agent ecosystem, provider portability, and container isolation</strong> to create portable AI agents that run in your environment—laptop, server, or data center.</p>
+      <h1 id="hero-title" class="h1">Self-hosted app store for AI agents</h1>
+      <p class="sub">Run specialized AI agents without sending your data to third parties. Discover agents in a visual catalog → Install with one click → Runs on your infrastructure with your credentials. <strong style="background: linear-gradient(135deg, #00b6a0 0%, #47a1d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600;">Like an app store for AI agents</strong>, built for teams that need specialized capabilities but can't use SaaS.</p>
       <div class="hero-cta-row">
         <div class="license-badge">
           <i class="ph ph-scales"></i>
@@ -98,17 +98,31 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
     </div>
   </section>
 
-  <!-- OVERVIEW VIDEO -->
-  <section style="padding-top: 3rem; padding-bottom: 3rem;">
+  <!-- TRY IT NOW -->
+  <section style="padding-top: 2rem; padding-bottom: 2rem; background: linear-gradient(135deg, #0a1f2e 0%, #1a2f3e 100%);">
     <div class="wrap">
-      <span class="pill">Overview</span>
-      <h2>See AgentSystems in Action</h2>
-      <p class="lead" style="margin-bottom: 2rem;">
-        Watch the 100-second overview below or dive into the <a href="https://www.youtube.com/watch?v=G2csNRrVXM8" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">full 9-minute demo and walkthrough</a>.
+      <h2 style="color: #fff; text-align: center; margin-bottom: 1rem;">See It in Action</h2>
+      <p class="lead" style="color: rgba(255,255,255,0.9); text-align: center; margin-bottom: 2rem;">
+        Watch the complete workflow from install to running your first agent
       </p>
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px;">
         <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/YRDamSh7M-I" title="AgentSystems in 100 Seconds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
+
+      <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+        <pre class="code"><span class="code-comment"># Complete workflow (60 seconds)</span>
+curl -fsSL https://agentsystems.ai/install.sh | sh
+agentsystems init my-agents && cd my-agents
+agentsystems up
+open http://localhost:3001
+
+<span class="code-comment"># In UI: Discover → Add agent → Invoke
+# Result: Agent runs locally, credentials stay on your infrastructure</span></pre>
+      </div>
+
+      <p style="text-align: center; margin-top: 1.5rem;">
+        <a href="https://www.youtube.com/watch?v=G2csNRrVXM8" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.9); text-decoration: underline;">Watch full 9-minute walkthrough</a>
+      </p>
     </div>
   </section>
 
