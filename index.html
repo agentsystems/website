@@ -69,55 +69,42 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
     </div>
   </section>
 
-  <!-- KEY CONCEPTS -->
+  <!-- THE PARADIGM SHIFT -->
   <section class="alt" style="padding-top: 3rem; padding-bottom: 3rem;">
     <div class="wrap">
-      <span class="pill">Key Concepts</span>
-      <h2 style="margin-bottom: 2rem;">How It Works</h2>
-      <div class="feature-grid">
-        <div class="feature">
-          <div class="feature-icon"><i class="ph ph-users-three"></i></div>
-          <div>
-            <h3>Anyone can publish agents (indexed by GitHub username)</h3>
-            <p>Open ecosystem where community developers publish agents through GitHub forks. No gatekeepers.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="ph ph-cube"></i></div>
-          <div>
-            <h3>You install agents and they run in separate Docker containers</h3>
-            <p>Each agent runs isolated on your machine with container-level separation.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="ph ph-key"></i></div>
-          <div>
-            <h3>Your credentials are injected at runtime</h3>
-            <p>Designed to keep your credentials under your control.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="ph ph-shield-check"></i></div>
-          <div>
-            <h3>You specify which external URLs each agent can access</h3>
-            <p>Egress proxy with configurable allowlists (default: none).</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="ph ph-arrow-u-up-left"></i></div>
-          <div>
-            <h3>Agents specify which model they need</h3>
-            <p>Then inherit your provider configuration (Ollama, AWS Bedrock, Anthropic API, OpenAI API).</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="ph ph-file-text"></i></div>
-          <div>
-            <h3>Hash-chained audit logs track execution history</h3>
-            <p>SHA-256 chain in PostgreSQL for transparency and accountability.</p>
-          </div>
-        </div>
+      <span class="pill">The Paradigm Shift</span>
+      <h2 style="margin-bottom: 1rem;">Most AI companies are building for the wrong future.</h2>
+      <p class="lead" style="margin-bottom: 2rem;">AI distribution is inverting: instead of sending data to agents, agents will run where data lives.</p>
+
+      <p class="lead" style="margin-top: 2rem; margin-bottom: 1.5rem;"><strong>Why the inversion is inevitable:</strong></p>
+      <div style="max-width: 900px; margin-bottom: 3rem;">
+        <p style="margin-bottom: 1rem; line-height: 1.7;">
+          <strong>→</strong> Frontier models, open-source models, and local hardware all keep improving
+        </p>
+        <p style="margin-bottom: 1rem; line-height: 1.7;">
+          <strong>→</strong> Building agents is quickly becoming trivial
+        </p>
+        <p style="margin-bottom: 1rem; line-height: 1.7;">
+          <strong>→</strong> Models can run locally or via your own cloud accounts — reducing dependency on third-party agent platforms
+        </p>
+        <p style="margin-bottom: 1rem; line-height: 1.7;">
+          <strong>→</strong> <a href="https://arxiv.org/abs/2506.02153" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">NVIDIA's research</a> shows small language models excel at specialized tasks — most agent workloads don't need massive generalist models
+        </p>
+        <p style="margin-bottom: 1rem; line-height: 1.7;">
+          <strong>→</strong> As AI transforms white-collar work, millions of subject matter experts (accountants, analysts, consultants, underwriters) will create agents to leverage their domain expertise. A tax accountant builds an agent for startup equity compensation. An insurance underwriter builds one for risk assessment.
+        </p>
+        <p style="margin-bottom: 0; line-height: 1.7;">
+          <strong>→</strong> The market floods with specialized agents for every niche task
+        </p>
       </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Two problems emerge: discovery and trust</h3>
+      <p class="lead" style="margin-bottom: 1.5rem;">
+        When agents are everywhere, how do you discover them? How do you run third-party agents without exposing your data or credentials?
+      </p>
+      <p class="lead" style="margin-bottom: 0;">
+        <strong>AgentSystems provides infrastructure for both.</strong>
+      </p>
     </div>
   </section>
 
@@ -129,7 +116,7 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
         Watch the complete workflow from install to running your first agent
       </p>
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px;">
-        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/YRDamSh7M-I" title="AgentSystems in 100 Seconds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/YRDamSh7M-I" title="AgentSystems in 100 Seconds" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
 
       <p style="text-align: center; margin-top: 1.5rem;">
@@ -138,42 +125,56 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
     </div>
   </section>
 
-  <!-- THE PARADIGM SHIFT -->
-  <section class="alt" style="padding-top: 3rem; padding-bottom: 3rem;">
+  <!-- HOW IT WORKS -->
+  <section class="alt" aria-labelledby="how-title">
     <div class="wrap">
-      <span class="pill">The Paradigm Shift</span>
-      <h2 style="margin-bottom: 1rem;">Most AI companies are building for the wrong future.</h2>
-      <p class="lead" style="margin-bottom: 2rem;">AI distribution is inverting: instead of sending data to agents, agents will run where data lives.</p>
+      <span class="pill">How It Works</span>
+      <h2 id="how-title">Built for Self-Hosting</h2>
 
-      <h3 style="margin-bottom: 1.5rem; margin-top: 2rem;">Why the inversion is inevitable:</h3>
-      <div class="grid cards-3 mb-32">
-        <div class="card">
-          <p>Frontier models, open-source models, and local hardware all keep improving</p>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-users-three"></i></div>
+          <div>
+            <h3>Anyone can publish agents</h3>
+            <p>Git-based agent index where community developers publish via GitHub forks. Anyone can run their own index alongside the community index.</p>
+          </div>
         </div>
-        <div class="card">
-          <p>Building agents is quickly becoming trivial</p>
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-cube"></i></div>
+          <div>
+            <h3>Container isolation</h3>
+            <p>Each agent runs in its own Docker container with configurable egress filtering, thread-scoped artifact storage, and lazy startup.</p>
+          </div>
         </div>
-        <div class="card">
-          <p>Models can run locally or via your own cloud accounts — reducing dependency on third-party agent platforms</p>
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-key"></i></div>
+          <div>
+            <h3>Runtime credential injection</h3>
+            <p>Credentials are injected at runtime and designed to be kept under your control.</p>
+          </div>
         </div>
-        <div class="card">
-          <p><a href="https://arxiv.org/abs/2506.02153" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">NVIDIA's research</a> shows small language models excel at specialized tasks — most agent workloads don't need massive generalist models</p>
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-shield-check"></i></div>
+          <div>
+            <h3>Configurable egress controls</h3>
+            <p>You specify which external URLs each agent can access. Default-deny with per-agent allowlists.</p>
+          </div>
         </div>
-        <div class="card">
-          <p>As AI transforms white-collar work, millions of subject matter experts (accountants, analysts, consultants, underwriters) will create agents to leverage their domain expertise. A tax accountant builds an agent for startup equity compensation. An insurance underwriter builds one for risk assessment.</p>
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-plugs-connected"></i></div>
+          <div>
+            <h3>Provider abstraction</h3>
+            <p>Agents specify which model they need, then inherit your provider configuration (OpenAI, Anthropic, AWS Bedrock, Ollama).</p>
+          </div>
         </div>
-        <div class="card">
-          <p>The market floods with specialized agents for every niche task</p>
+        <div class="feature">
+          <div class="feature-icon"><i class="ph ph-file-text"></i></div>
+          <div>
+            <h3>Hash-chained audit logs</h3>
+            <p>SHA-256 chain in PostgreSQL provides transparency and accountability for agent execution.</p>
+          </div>
         </div>
       </div>
-
-      <h3 style="margin-top: 2rem; margin-bottom: 1rem; text-align: center;">Two problems emerge: discovery and trust</h3>
-      <p class="lead" style="text-align: center; margin-bottom: 1.5rem;">
-        When agents are everywhere, how do you discover them? How do you run third-party agents without exposing your data or credentials?
-      </p>
-      <p class="lead" style="text-align: center; margin-bottom: 0;">
-        <strong>AgentSystems provides infrastructure for both.</strong>
-      </p>
     </div>
   </section>
 
@@ -234,48 +235,8 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
     </div>
   </section>
 
-  <!-- KEY BENEFITS -->
-  <section aria-labelledby="benefits-title">
-    <div class="wrap">
-      <span class="pill">Key Benefits</span>
-      <h2 id="benefits-title">Built for Self-Hosting</h2>
-
-      <div class="feature-grid">
-        <div class="feature">
-          <div class="feature-icon"><i class="ph ph-git-branch"></i></div>
-          <div>
-            <h3>Federated Discovery</h3>
-            <p>Git-based agent index where community developers publish via GitHub forks. Anyone can run their own index alongside the community index. No central authority controls listing or distribution.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="ph ph-shield-check"></i></div>
-          <div>
-            <h3>Container Isolation</h3>
-            <p>Each agent runs in its own Docker container with configurable egress filtering, thread-scoped artifact storage, hash-chained audit logs, and lazy startup.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="ph ph-plugs-connected"></i></div>
-          <div>
-            <h3>Provider Portability</h3>
-            <p>Agents specify which model they need, then inherit your provider configuration. Switch from OpenAI to Anthropic to Ollama through configuration. Reduce vendor lock-in at the agent level.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid cards-4 mt-32">
-        <div class="card"><h3><i class="ph ph-house"></i> Flexible Deployment</h3><p>Laptop, server, Kubernetes — works where Docker runs.</p></div>
-        <div class="card"><h3><i class="ph ph-eye"></i> Observable</h3><p>Langfuse integration for tracing LLM calls and agent execution.</p></div>
-        <div class="card"><h3><i class="ph ph-file-text"></i> Audit Trail</h3><p>SHA-256 hash-chained logs for operation tracking.</p></div>
-        <div class="card"><h3><i class="ph ph-git-branch"></i> Thread Isolation</h3><p>Each request gets a unique thread ID with separate artifacts.</p></div>
-      </div>
-
-    </div>
-  </section>
-
-<!-- USE CASES -->
-  <section id="use-cases" class="alt" aria-labelledby="use-title">
+  <!-- USE CASES -->
+  <section id="use-cases" aria-labelledby="use-title">
     <div class="wrap">
       <span class="pill">Use Cases</span>
       <h2 id="use-title">What can you build with AgentSystems?</h2>
@@ -319,8 +280,8 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
           <p><strong>Input:</strong> 100-page legal documents<br><strong>Output:</strong> Structured data extraction with clause identification</p>
         </div>
         <div class="card">
-          <h4><i class="ph ph-shield-check"></i> Security Audit Workflows</h4>
-          <p><strong>Input:</strong> Application codebase<br><strong>Output:</strong> Vulnerability report with findings</p>
+          <h4><i class="ph ph-shield-check"></i> Code Analysis Workflows</h4>
+          <p><strong>Input:</strong> Application codebase<br><strong>Output:</strong> Analysis report with findings</p>
         </div>
         <div class="card">
           <h4><i class="ph ph-clipboard-text"></i> Report Generation</h4>
@@ -341,7 +302,7 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
   </section>
 
   <!-- QUICK START -->
-  <section id="quickstart" aria-labelledby="quick-title">
+  <section id="quickstart" class="alt" aria-labelledby="quick-title">
     <div class="wrap">
       <span class="pill">Quick Start</span>
       <h2 id="quick-title">Deploy in Minutes</h2>
@@ -392,7 +353,7 @@ open http://localhost:3001</pre>
   </section>
 
   <!-- COMPARISON -->
-  <section class="alt" aria-labelledby="comparison-title">
+  <section aria-labelledby="comparison-title">
     <div class="wrap">
       <span class="pill">Comparison</span>
       <h2 id="comparison-title">How AgentSystems Compares</h2>
@@ -421,7 +382,7 @@ open http://localhost:3001</pre>
   </section>
 
   <!-- FOR AGENT DEVELOPERS -->
-  <section aria-labelledby="developers-title">
+  <section class="alt" aria-labelledby="developers-title">
     <div class="wrap">
       <span class="pill">For Agent Developers</span>
       <h2 id="developers-title">Build Once, Reach Self-Hosting Customers</h2>
@@ -472,7 +433,7 @@ open http://localhost:3001</pre>
   </section>
 
   <!-- COMPONENTS -->
-  <section id="components" aria-labelledby="comp-title">
+  <section id="components" class="alt" aria-labelledby="comp-title">
     <div class="wrap">
       <span class="pill">Components</span>
       <h2 id="comp-title">Integrated Platform Components</h2>
@@ -525,7 +486,7 @@ open http://localhost:3001</pre>
   </section>
 
   <!-- COMMUNITY -->
-  <section class="alt" aria-labelledby="comm-title">
+  <section aria-labelledby="comm-title">
     <div class="wrap">
       <span class="pill">Community</span>
       <h2 id="comm-title">Join the Open Agent Ecosystem</h2>
