@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AgentSystems — Self-Hosted Platform for AI Agents</title>
-  <meta name="description" content="Self-hosted app store for AI agents. Browse, install, and run containerized agents on your infrastructure. Visual discovery, streamlined deployment, credential isolation." />
+  <meta name="description" content="Self-hosted app store and runtime for third-party AI agents. Infrastructure for a commoditized agent future. Container isolation, credential injection, default-deny egress." />
   <meta property="og:title" content="AgentSystems — Self-Hosted App Store for AI Agents" />
   <meta property="og:description" content="Browse, install, and run AI agents on your infrastructure. Visual discovery, streamlined deployment, containerized isolation." />
   <meta property="og:type" content="website" />
@@ -50,7 +50,7 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-inner">
       <h1 id="hero-title" class="h1">Self-hosted app store for AI agents</h1>
-      <p class="sub">Specialized AI agents designed to run on your infrastructure without sending your data to third parties. <strong style="background: linear-gradient(135deg, #00b6a0 0%, #47a1d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600;">Self-hosted and open source.</strong> Discover agents in a visual catalog → Install with one click → Runs on your infrastructure with your credentials.</p>
+      <p class="sub">Self-hosted app store and runtime for third-party AI agents. Infrastructure for a commoditized agent future. <strong style="background: linear-gradient(135deg, #00b6a0 0%, #47a1d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600;">Apache-2.0. No gatekeepers.</strong></p>
       <div class="hero-cta-row">
         <div class="license-badge">
           <i class="ph ph-scales"></i>
@@ -93,7 +93,7 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
           <div class="feature-icon"><i class="ph ph-key"></i></div>
           <div>
             <h3>Your credentials are injected at runtime</h3>
-            <p>Not shared with agent builders — your API keys and secrets remain under your control.</p>
+            <p>Designed to keep your credentials under your control.</p>
           </div>
         </div>
         <div class="feature">
@@ -138,28 +138,29 @@ curl -fsSL https://github.com/agentsystems/agentsystems/releases/latest/download
     </div>
   </section>
 
-  <!-- VISION FOR THE FUTURE -->
+  <!-- THE PARADIGM SHIFT -->
   <section class="alt" style="padding-top: 3rem; padding-bottom: 3rem;">
     <div class="wrap">
-      <span class="pill">Vision for the Future</span>
-      <h2 style="margin-bottom: 1.5rem;">Millions of agents are coming. Most will require sending your data to third-party servers.</h2>
-      <p class="lead" style="font-size: 1.125rem; margin-bottom: 1.5rem;">
-        <strong>There's another path.</strong>
+      <span class="pill">The Paradigm Shift</span>
+      <h2 style="margin-bottom: 1rem;">Most AI companies are building for the wrong future.</h2>
+      <p class="lead" style="margin-bottom: 2rem;">AI distribution is inverting: instead of sending data to agents, agents will run where data lives.</p>
+
+      <h3 style="margin-bottom: 1rem;">Why the inversion is inevitable:</h3>
+      <ul style="list-style: disc; padding-left: 2rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <li style="margin-bottom: 0.75rem;">Frontier models, open-source models, and local hardware all keep improving</li>
+        <li style="margin-bottom: 0.75rem;">Building agents is quickly becoming trivial</li>
+        <li style="margin-bottom: 0.75rem;">Models can run locally or via your own cloud accounts — reducing dependency on third-party agent platforms</li>
+        <li style="margin-bottom: 0.75rem;"><a href="https://arxiv.org/abs/2506.02153" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">NVIDIA's research</a> shows small language models excel at specialized tasks — most agent workloads don't need massive generalist models</li>
+        <li style="margin-bottom: 0.75rem;">As AI transforms white-collar work, millions of subject matter experts (accountants, analysts, consultants, underwriters) will create agents to leverage their domain expertise. A tax accountant builds an agent for startup equity compensation. An insurance underwriter builds one for risk assessment.</li>
+        <li style="margin-bottom: 0.75rem;">The market floods with specialized agents for every niche task</li>
+      </ul>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem; text-align: center;">Two problems emerge: discovery and trust</h3>
+      <p class="lead" style="text-align: center; margin-bottom: 1.5rem;">
+        When agents are everywhere, how do you discover them? How do you run third-party agents without exposing your data or credentials?
       </p>
-      <p class="lead" style="margin-bottom: 1.5rem;">
-        Frontier models keep improving — agents get easier to build with less expertise. Consumer hardware keeps advancing — models run locally without cloud providers. <a href="https://arxiv.org/abs/2506.02153" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">NVIDIA's research</a> shows why this works: small language models are the future of agentic AI. Most agent tasks are specialized and repetitive — they don't need massive generalist models.
-      </p>
-      <p class="lead" style="margin-bottom: 1.5rem;">
-        The infrastructure we build now determines whether we're locked into centralized platforms or not.
-      </p>
-      <p class="lead" style="margin-bottom: 1.5rem;">
-        <strong>AgentSystems is that infrastructure: discover agents, run them where you control the data.</strong>
-      </p>
-      <p class="lead" style="margin-bottom: 1.5rem;">
-        Someone has to build the rails so the trains can run.
-      </p>
-      <p class="lead" style="margin-bottom: 0;">
-        Apache-2.0. No gatekeepers.
+      <p class="lead" style="text-align: center; margin-bottom: 0;">
+        <strong>AgentSystems provides infrastructure for both.</strong>
       </p>
     </div>
   </section>
